@@ -55,7 +55,7 @@
       #cam {
         position: absolute;
         inset: 0;
-        transform-origin: 50% 25%;
+        transform-origin: 50% 40%;
       }
       #aroll {
         position: absolute;
@@ -201,6 +201,10 @@
         text-align: center;
         white-space: nowrap;
       }
+      .cap em {
+        font-style: normal;
+        color: var(--terracotta);
+      }
     </style>
   </head>
   <body>
@@ -279,7 +283,7 @@
       <!-- Kaart C: winkels + webshop -->
       <div id="card-c" class="clip slot-top" data-start="12.62" data-duration="4.42" data-track-index="2">
         <div id="card-c-in" class="card brandcard">
-          <div class="kicker">AVELGEM · RENAIX</div>
+          <div class="kicker">AVELGEM · RONSE</div>
           <div class="url">loulou.store</div>
           <div class="rule"></div>
         </div>
@@ -287,29 +291,48 @@
 
       <!-- Ondertitels (FR) -->
       <div id="c1" class="clip cap" data-start="0.20" data-duration="0.80" data-track-index="1"><span>Tu connais</span></div>
-      <div id="c2" class="clip cap" data-start="1.00" data-duration="1.15" data-track-index="1"><span>loulou.store ?</span></div>
+      <div id="c2" class="clip cap" data-start="1.00" data-duration="1.15" data-track-index="1"><span><em>loulou.store</em> ?</span></div>
       <div id="c3" class="clip cap" data-start="2.30" data-duration="0.85" data-track-index="1"><span>Chaque semaine,</span></div>
       <div id="c4" class="clip cap" data-start="3.20" data-duration="1.00" data-track-index="1"><span>chaque jour,</span></div>
-      <div id="c5" class="clip cap" data-start="4.20" data-duration="1.20" data-track-index="1"><span>des nouveautés.</span></div>
+      <div id="c5" class="clip cap" data-start="4.20" data-duration="1.20" data-track-index="1"><span>des <em>nouveautés</em>.</span></div>
       <div id="c6" class="clip cap" data-start="5.40" data-duration="1.30" data-track-index="1"><span>Voici par exemple</span></div>
       <div id="c7" class="clip cap" data-start="6.70" data-duration="1.05" data-track-index="1"><span>les nouveautés</span></div>
-      <div id="c8" class="clip cap" data-start="7.75" data-duration="1.55" data-track-index="1"><span>du jour.</span></div>
+      <div id="c8" class="clip cap" data-start="7.75" data-duration="1.55" data-track-index="1"><span>du <em>jour</em>.</span></div>
       <div id="c9" class="clip cap" data-start="9.70" data-duration="0.55" data-track-index="1"><span>Chaque jour</span></div>
       <div id="c10" class="clip cap" data-start="10.25" data-duration="0.90" data-track-index="1"><span>du nouveau</span></div>
       <div id="c10b" class="clip cap" data-start="11.15" data-duration="1.25" data-track-index="1"><span>en boutique,</span></div>
-      <div id="c11" class="clip cap" data-start="12.40" data-duration="1.20" data-track-index="1"><span>à Avelgem et Renaix,</span></div>
+      <div id="c11" class="clip cap" data-start="12.40" data-duration="1.20" data-track-index="1"><span>à <em>Avelgem</em> et <em>Ronse</em>,</span></div>
       <div id="c12" class="clip cap" data-start="13.70" data-duration="0.70" data-track-index="1"><span>mais aussi</span></div>
-      <div id="c13" class="clip cap" data-start="14.40" data-duration="1.50" data-track-index="1"><span>sur loulou.store.</span></div>
-      <div id="c14" class="clip cap" data-start="16.15" data-duration="0.89" data-track-index="1"><span>À découvrir !</span></div>
+      <div id="c13" class="clip cap" data-start="14.40" data-duration="1.50" data-track-index="1"><span>sur <em>loulou.store</em>.</span></div>
+      <div id="c14" class="clip cap" data-start="16.15" data-duration="0.89" data-track-index="1"><span><em>À découvrir !</em></span></div>
+
+      <!-- Geluidjes (synthetisch, scripts/maak-sfx.sh) -->
+      <audio id="sfx-pop-1" src="assets/sfx/pop.wav" data-start="0.35" data-duration="0.16" data-volume="0.3" data-track-index="4"></audio>
+      <audio id="sfx-pop-2" src="assets/sfx/pop.wav" data-start="5.45" data-duration="0.16" data-volume="0.3" data-track-index="4"></audio>
+      <audio id="sfx-pop-3" src="assets/sfx/pop.wav" data-start="12.62" data-duration="0.16" data-volume="0.3" data-track-index="4"></audio>
+      <audio id="sfx-pop-4" src="assets/sfx/pop.wav" data-start="16.15" data-duration="0.16" data-volume="0.3" data-track-index="4"></audio>
+      <audio id="sfx-tik-5" src="assets/sfx/tik.wav" data-start="6.58" data-duration="0.07" data-volume="0.32" data-track-index="5"></audio>
+      <audio id="sfx-tik-6" src="assets/sfx/tik.wav" data-start="7.70" data-duration="0.07" data-volume="0.32" data-track-index="5"></audio>
+      <audio id="sfx-tik-7" src="assets/sfx/tik.wav" data-start="8.83" data-duration="0.07" data-volume="0.32" data-track-index="5"></audio>
+      <audio id="sfx-tik-8" src="assets/sfx/tik.wav" data-start="9.95" data-duration="0.07" data-volume="0.32" data-track-index="5"></audio>
+      <audio id="sfx-tik-9" src="assets/sfx/tik.wav" data-start="11.08" data-duration="0.07" data-volume="0.32" data-track-index="5"></audio>
+      <audio id="sfx-whoosh-10" src="assets/sfx/whoosh.wav" data-start="0.74" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-11" src="assets/sfx/whoosh.wav" data-start="3.94" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-12" src="assets/sfx/whoosh.wav" data-start="7.49" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-13" src="assets/sfx/whoosh.wav" data-start="14.14" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
     </div>
 
     <script>
       const tl = gsap.timeline({ paused: true });
 
-      // Camera: zachte punch-ins (licht dynamisch)
-      tl.fromTo("#cam", { scale: 1 }, { scale: 1.08, duration: 0.45, ease: "power2.inOut" }, 5.0);
-      tl.to("#cam", { scale: 1, duration: 0.35, ease: "power2.inOut" }, 12.25);
-      tl.to("#cam", { scale: 1.05, duration: 0.4, ease: "power2.inOut" }, 14.3);
+      // Camera: zoom-sprongen per zin/kernwoord (dynamisch, als jump-cuts)
+      const zooms = [
+        [1.0, 1.1], [2.3, 1.0], [3.2, 1.06], [4.2, 1.12], [5.4, 1.04], [6.7, 1.08], [7.75, 1.12],
+        [9.7, 1.0], [10.25, 1.06], [11.15, 1.1], [12.4, 1.03], [13.7, 1.08], [14.4, 1.12], [16.15, 1.0],
+      ];
+      tl.set("#cam", { scale: 1 }, 0);
+      zooms.forEach(([t, sc]) => tl.to("#cam", { scale: sc, duration: 0.14, ease: "power3.out" }, t));
+      tl.to("#cam", { scale: 1.06, duration: 0.85, ease: "none" }, 16.19);
 
       // Kaart A
       tl.fromTo("#card-a-in", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0.35);
@@ -321,7 +344,7 @@
       for (let i = 0; i < 6; i++) {
         const sel = "#p" + (i + 1);
         tl.set(sel, { opacity: 1 }, wissels[i]);
-        if (i > 0) tl.fromTo(sel + " .prod-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power1.out" }, wissels[i]);
+        if (i > 0) tl.fromTo(sel + " .prod-inner", { opacity: 0, x: 90 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, wissels[i]);
         if (i < 5) tl.set(sel, { opacity: 0 }, wissels[i + 1]);
       }
       tl.to("#prodcard", { opacity: 0, scale: 0.95, duration: 0.22, ease: "power1.in" }, 11.98);
@@ -329,10 +352,10 @@
       // Kaart C
       tl.fromTo("#card-c-in", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 12.62);
 
-      // Ondertitels: korte, rustige verschijning
+      // Ondertitels: pop-in
       document.querySelectorAll(".cap").forEach((el) => {
         const t = parseFloat(el.dataset.start);
-        tl.fromTo(el.querySelector("span"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.12, ease: "power1.out" }, t);
+        tl.fromTo(el.querySelector("span"), { opacity: 0, scale: 0.72 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.2)" }, t);
       });
 
       window.__timelines["main"] = tl;

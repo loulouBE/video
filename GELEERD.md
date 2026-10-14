@@ -10,6 +10,7 @@ Lees dit vóór stap 5 van elke video. Vraag nooit opnieuw wat hier staat.
 3. **Lengte:** 15 tot 20 seconden. Kort en to the point, één boodschap.
 4. **Taal:** ik spreek Nederlands, de ondertitels zijn in het **Frans** (vertaald).
    Transcribeer in NL en vertaal naar natuurlijk, kort Frans, niet woord voor woord.
+   **Plaatsnamen nooit vertalen:** Ronse blijft Ronse (niet Renaix), Avelgem blijft Avelgem.
 5. **Ondertitels:** korte stukjes van 2–4 Franse woorden, groot en vet, in de onderste helft maar
    binnen de veilige zone (niet lager dan 85 % van de hoogte). Het tempo volgt de NL-spraak per zin,
    verdeeld over de stukjes.
@@ -29,20 +30,25 @@ Lees dit vóór stap 5 van elke video. Vraag nooit opnieuw wat hier staat.
    200 ms ademruimte voor en na elke zin laten staan.
 10. **Slechte takes:** bij herhalingen/herstarts de **beste** poging houden (vloeiendst, minste
     "euh", volledige zin), niet automatisch de laatste. In de oplevering melden welke ik koos.
-11. **Muziek:** geen. Enkel mijn stem, geen achtergrondtrack.
+11. **Muziek:** geen achtergrondtrack. **Wel geluidjes (SFX)**: pop bij kaartjes, tik bij productwissel,
+    zachte whoosh bij zoom-sprongen; onder de stem, nooit storend.
 12. **Intro/outro:** geen. Meteen starten met mij, eindigen op de laatste zin.
-13. **Tempo:** licht dynamisch: een zachte punch-in (±10 %) bij elk product of elke prijs, verder rustig.
+13. **Tempo:** **dynamisch**: snelle zoom-sprongen (1,00 ↔ 1,08–1,12) per zin of kernwoord, als
+    jump-cuts; ondertitels poppen in met kernwoorden in terracotta; producten schuiven in.
 14. **Nooit doen:**
     - geen gloed, 3D-tekst, neon of glitch-effecten;
     - geen emoji's, pijltjes of stickers;
-    - nooit meer dan één animatie tegelijk naast de ondertitels.
+    - geen rommel: kaartjes één tegelijk; camera-zoom + ondertitel-pop mogen wel samen.
 15. **Oplevering:** `exports/<naam>-draft.mp4`, ook rechtstreeks in de chat sturen (zodat ik hem op
     mijn gsm kan bekijken), plus 5 regels samenvatting.
 
 ## Afgewezen
 
-_(nog leeg: hier komt wat ik na een draft níét wou)_
+- IMG_6134: "Renaix" voor Ronse: plaatsnamen niet vertalen.
+- IMG_6134: video zonder geluidjes en met te weinig dynamiek (één punch-in, rustige ondertitels).
 
 ## Doe in de plaats
 
-_(nog leeg: hier komt wat ik wél wil)_
+- Plaatsnamen in het origineel laten (Ronse, Avelgem).
+- Geluidjes (pop / tik / whoosh) bij elk visueel moment.
+- Zoom-sprongen per zin, ondertitels die poppen met kernwoorden in terracotta, producten die inschuiven.
