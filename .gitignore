@@ -8,3 +8,5 @@ render/assets/video/
 # ruwe opnames zijn groot; het origineel heb je zelf
 opnames/*
 !opnames/.gitkeep
+# eindvideo's worden in de chat geleverd, niet in git
+exports/*.mp4
