@@ -20,7 +20,8 @@ Lees dit vóór stap 5 van elke video. Vraag nooit opnieuw wat hier staat.
    - Kleuren: antraciet `#1D1C1C`, wit `#FFFFFF`, crème `#F4F2ED`, warm grijs `#585756`.
    - Accent: **terracotta `#CC8E72`** (prijzen en nadruktekst).
    - Ondertitels: wit, met antraciet blokje of schaduw voor leesbaarheid.
-   - Logo: `assets/logo.png` = de "Solden"-banner uit het thema (400×150), goedgekeurd.
+   - Logo: `assets/logo.png` = zwart "Lou Lou"-script op transparant (400×150, uit het thema),
+     goedgekeurd. Op donker beeld: `assets/logo-wit.png`.
 8. **Zwevende foto's:** bij elk genoemd product zweeft de packshot ernaast (uit `assets/`; titels en
    prijzen staan in `assets/producten.json`, gebruik die voor de nadruktekst).
    Maximaal 1 tegelijk, witte rand + zachte schaduw. Nooit over het gezicht.
