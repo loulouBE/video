@@ -3,3 +3,8 @@ node_modules/
 render/node_modules/
 render/renders/
 .DS_Store
+render/.hyperframes/
+render/assets/video/
+# ruwe opnames zijn groot; het origineel heb je zelf
+opnames/*
+!opnames/.gitkeep

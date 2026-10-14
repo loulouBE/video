@@ -1,10 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/lib/gsap.min.js"></script>
     <style>
+      @font-face {
+        font-family: "Instrument Sans";
+        src: url("assets/fonts/instrument-sans-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Instrument Sans";
+        src: url("assets/fonts/instrument-sans-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Noto Serif";
+        src: url("assets/fonts/noto-serif-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Noto Serif";
+        src: url("assets/fonts/noto-serif-latin-600-normal.woff2") format("woff2");
+        font-weight: 600;
+      }
+      :root {
+        --antraciet: #1d1c1c;
+        --creme: #f4f2ed;
+        --grijs: #585756;
+        --terracotta: #cc8e72;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -12,25 +38,148 @@
       }
       html,
       body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
+        width: 1080px;
+        height: 1920px;
         overflow: hidden;
-        background: #0a0a0a;
+        background: var(--antraciet);
       }
       #root {
+        position: relative;
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        overflow: hidden;
+        font-family: "Instrument Sans", sans-serif;
       }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
+
+      /* Camera: wrapper krijgt de punch-ins, de video zelf blijft onaangeroerd */
+      #cam {
+        position: absolute;
+        inset: 0;
+        transform-origin: 50% 25%;
+      }
+      #aroll {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Kaarten boven het hoofd */
+      .slot-top {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 150px;
+        display: flex;
+        justify-content: center;
+      }
+      .card {
+        display: block;
+        background: var(--creme);
+        border-radius: 22px;
+        box-shadow: 0 18px 40px rgba(29, 28, 28, 0.22);
+        text-align: center;
+      }
+      .brandcard {
+        width: 620px;
+        padding: 34px 40px 38px;
+      }
+      .brandcard .kicker {
+        font-weight: 700;
+        font-size: 30px;
+        letter-spacing: 0.22em;
+        color: var(--grijs);
+        margin-bottom: 10px;
+      }
+      .brandcard .url {
+        font-family: "Noto Serif", serif;
         font-weight: 600;
-        letter-spacing: -0.03em;
+        font-size: 76px;
+        line-height: 1.1;
+        color: var(--antraciet);
+      }
+      .brandcard .rule {
+        display: block;
+        width: 120px;
+        height: 6px;
+        margin: 18px auto 0;
+        border-radius: 3px;
+        background: var(--terracotta);
+      }
+
+      /* Productkaart: één kaart, inhoud wisselt per product */
+      #prodcard {
+        position: relative;
+        width: 430px;
+        height: 450px;
+        padding: 14px;
+        background: #ffffff;
+        opacity: 0;
+      }
+      .prod {
+        position: absolute;
+        inset: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .prod-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+      .prod img {
+        display: block;
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+      }
+      .prod .naam {
+        font-family: "Noto Serif", serif;
+        font-size: 34px;
+        line-height: 1.15;
+        color: var(--antraciet);
+        margin-top: 8px;
+        white-space: nowrap;
+      }
+      .prod .prijs {
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 1.1;
+        color: var(--antraciet);
+        margin-top: 4px;
+      }
+      .prod .prijs span {
+        display: inline-block;
+        padding: 2px 16px;
+        border-radius: 10px;
+        background: var(--terracotta);
+      }
+
+      /* Ondertitels: één regel, binnen de veilige zone (< 85 % hoogte) */
+      .cap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1470px;
+        display: flex;
+        justify-content: center;
+      }
+      .cap span {
+        display: block;
+        max-width: 860px;
+        padding: 12px 28px 16px;
+        border-radius: 16px;
+        background: rgba(29, 28, 28, 0.82);
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 66px;
+        line-height: 1.12;
+        text-align: center;
+        white-space: nowrap;
       }
     </style>
   </head>
@@ -39,17 +188,141 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
+      data-duration="17.04"
+      data-width="1080"
+      data-height="1920"
     >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+      <div id="cam">
+        <video
+          id="aroll"
+          class="clip"
+          src="assets/video/IMG_6134-cut.mp4"
+          playsinline
+          data-has-audio="true"
+          data-volume="1"
+          data-start="0"
+          data-duration="17.04"
+          data-track-index="0"
+        ></video>
+      </div>
+
+      <!-- Kaart A: loulou.store -->
+      <div id="card-a" class="clip slot-top" data-start="0.35" data-duration="2.05" data-track-index="2">
+        <div id="card-a-in" class="card brandcard">
+          <div class="url">loulou.store</div>
+          <div class="rule"></div>
+        </div>
+      </div>
+
+      <!-- Productkaart: 6 nieuwigheden van vandaag -->
+      <div class="slot-top">
+        <div id="prodcard" class="card">
+          <div id="p1" class="clip prod" data-start="5.45" data-duration="1.13" data-track-index="3">
+            <div class="prod-inner">
+              <img src="assets/products/bloes-modena-choco.jpg" alt="" />
+              <div class="naam">Blouse Modena</div>
+              <div class="prijs"><span>€74,95</span></div>
+            </div>
+          </div>
+          <div id="p2" class="clip prod" data-start="6.58" data-duration="1.12" data-track-index="3">
+            <div class="prod-inner">
+              <img src="assets/products/bloes-monterrey-light-blue.png" alt="" />
+              <div class="naam">Blouse Monterrey</div>
+              <div class="prijs"><span>€59,95</span></div>
+            </div>
+          </div>
+          <div id="p3" class="clip prod" data-start="7.70" data-duration="1.13" data-track-index="3">
+            <div class="prod-inner">
+              <img src="assets/products/cardigan-montevideo-choco.png" alt="" />
+              <div class="naam">Cardigan Montevideo</div>
+              <div class="prijs"><span>€59,95</span></div>
+            </div>
+          </div>
+          <div id="p4" class="clip prod" data-start="8.83" data-duration="1.12" data-track-index="3">
+            <div class="prod-inner">
+              <img src="assets/products/rok-new-lyon-multi.jpg" alt="" />
+              <div class="naam">Jupe New Lyon</div>
+              <div class="prijs"><span>€79,95</span></div>
+            </div>
+          </div>
+          <div id="p5" class="clip prod" data-start="9.95" data-duration="1.13" data-track-index="3">
+            <div class="prod-inner">
+              <img src="assets/products/pull-masatepe-beige.jpg" alt="" />
+              <div class="naam">Pull Masatepe</div>
+              <div class="prijs"><span>€79,95</span></div>
+            </div>
+          </div>
+          <div id="p6" class="clip prod" data-start="11.08" data-duration="1.12" data-track-index="3">
+            <div class="prod-inner">
+              <img src="assets/products/pull-masatepe-aubergine.png" alt="" />
+              <div class="naam">Pull Masatepe</div>
+              <div class="prijs"><span>€79,95</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kaart C: winkels + webshop -->
+      <div id="card-c" class="clip slot-top" data-start="12.55" data-duration="4.49" data-track-index="2">
+        <div id="card-c-in" class="card brandcard">
+          <div class="kicker">AVELGEM · RONSE</div>
+          <div class="url">loulou.store</div>
+          <div class="rule"></div>
+        </div>
+      </div>
+
+      <!-- Ondertitels (FR) -->
+      <div id="c1" class="clip cap" data-start="0.20" data-duration="0.80" data-track-index="1"><span>Tu connais</span></div>
+      <div id="c2" class="clip cap" data-start="1.00" data-duration="1.15" data-track-index="1"><span>loulou.store ?</span></div>
+      <div id="c3" class="clip cap" data-start="2.30" data-duration="0.85" data-track-index="1"><span>Chaque semaine,</span></div>
+      <div id="c4" class="clip cap" data-start="3.20" data-duration="1.00" data-track-index="1"><span>chaque jour,</span></div>
+      <div id="c5" class="clip cap" data-start="4.20" data-duration="1.20" data-track-index="1"><span>des nouveautés.</span></div>
+      <div id="c6" class="clip cap" data-start="5.40" data-duration="1.30" data-track-index="1"><span>Voici par exemple</span></div>
+      <div id="c7" class="clip cap" data-start="6.70" data-duration="1.05" data-track-index="1"><span>les nouveautés</span></div>
+      <div id="c8" class="clip cap" data-start="7.75" data-duration="1.55" data-track-index="1"><span>du jour.</span></div>
+      <div id="c9" class="clip cap" data-start="9.70" data-duration="1.05" data-track-index="1"><span>Chaque jour</span></div>
+      <div id="c10" class="clip cap" data-start="10.75" data-duration="1.20" data-track-index="1"><span>du nouveau en boutique,</span></div>
+      <div id="c11" class="clip cap" data-start="12.40" data-duration="1.20" data-track-index="1"><span>à Avelgem et Renaix,</span></div>
+      <div id="c12" class="clip cap" data-start="13.70" data-duration="0.70" data-track-index="1"><span>mais aussi</span></div>
+      <div id="c13" class="clip cap" data-start="14.40" data-duration="1.50" data-track-index="1"><span>sur loulou.store.</span></div>
+      <div id="c14" class="clip cap" data-start="16.15" data-duration="0.89" data-track-index="1"><span>À découvrir !</span></div>
     </div>
+
     <script>
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
+
+      // Camera: zachte punch-ins (licht dynamisch)
+      tl.fromTo("#cam", { scale: 1 }, { scale: 1.08, duration: 0.45, ease: "power2.inOut" }, 5.0);
+      tl.to("#cam", { scale: 1, duration: 0.3, ease: "power2.inOut" }, 12.2);
+      tl.to("#cam", { scale: 1.05, duration: 0.4, ease: "power2.inOut" }, 14.3);
+
+      // Kaart A
+      tl.fromTo("#card-a-in", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0.35);
+      tl.to("#card-a-in", { opacity: 0, y: -12, duration: 0.25, ease: "power1.in" }, 2.15);
+
+      // Productkaart: pop-in, wissel per product, uit
+      tl.fromTo("#prodcard", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 5.45);
+      [
+        ["#p2 .prod-inner", 6.58],
+        ["#p3 .prod-inner", 7.7],
+        ["#p4 .prod-inner", 8.83],
+        ["#p5 .prod-inner", 9.95],
+        ["#p6 .prod-inner", 11.08],
+      ].forEach(([sel, t]) => {
+        tl.fromTo(sel, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power1.out" }, t);
+      });
+      tl.to("#prodcard", { opacity: 0, scale: 0.95, duration: 0.22, ease: "power1.in" }, 11.98);
+
+      // Kaart C
+      tl.fromTo("#card-c-in", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 12.55);
+
+      // Ondertitels: korte, rustige verschijning
+      document.querySelectorAll(".cap").forEach((el) => {
+        const t = parseFloat(el.dataset.start);
+        tl.fromTo(el.querySelector("span"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.12, ease: "power1.out" }, t);
+      });
+
       window.__timelines["main"] = tl;
-      tl.seek(0);
     </script>
   </body>
 </html>

@@ -6,7 +6,10 @@ Schrijft werk/x/transcript.json (segmenten + woorden) en werk/x/transcript.srt.
 """
 import argparse
 import json
+import subprocess
 from pathlib import Path
+
+import numpy as np
 
 from faster_whisper import WhisperModel
 
@@ -17,6 +20,15 @@ def srt_tijd(t):
     m, ms = divmod(ms, 60_000)
     s, ms = divmod(ms, 1000)
     return f"{u:02}:{m:02}:{s:02},{ms:03}"
+
+
+def lees_audio(bron):
+    # Eerste audiospoor via ffmpeg → 16 kHz mono float32 (omzeilt PyAV-versieproblemen en extra iPhone-sporen).
+    raw = subprocess.run(
+        ["ffmpeg", "-nostdin", "-loglevel", "error", "-i", bron, "-map", "0:a:0", "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+        check=True, capture_output=True,
+    ).stdout
+    return np.frombuffer(raw, np.float32)
 
 
 def main():
@@ -31,7 +43,7 @@ def main():
     uit.mkdir(parents=True, exist_ok=True)
 
     model = WhisperModel(a.model, device="auto", compute_type="auto")
-    segmenten, info = model.transcribe(a.bron, language=a.taal, word_timestamps=True, vad_filter=False)
+    segmenten, info = model.transcribe(lees_audio(a.bron), language=a.taal, word_timestamps=True, vad_filter=False)
 
     data = {"taal": info.language, "duur": info.duration, "segmenten": []}
     srt = []
