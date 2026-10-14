@@ -1,2 +1,2 @@
-{"bron": "opnames/IMG_6134.MOV", "drempel": "silencedetect -35dB d=0.6, 200 ms ademruimte",
- "behouden": [[0.42, 9.98], [10.33, 11.73], [12.08, 17.15], [17.44, 18.44]]}
+{"bron": "opnames/IMG_6134.MOV", "drempel": "silencedetect -35dB d=0.6, 200 ms ademruimte; extra: pauzes rond 'van vandaag' ingekort (feedback)",
+ "behouden": [[0.42, 8.22], [8.39, 8.82], [9.20, 9.98], [10.33, 11.73], [12.08, 17.15], [17.44, 18.44]]}
