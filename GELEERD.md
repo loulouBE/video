@@ -29,8 +29,7 @@ Lees dit vóór stap 5 van elke video. Vraag nooit opnieuw wat hier staat.
    200 ms ademruimte voor en na elke zin laten staan.
 10. **Slechte takes:** bij herhalingen/herstarts de **beste** poging houden (vloeiendst, minste
     "euh", volledige zin), niet automatisch de laatste. In de oplevering melden welke ik koos.
-11. **Muziek:** ja, eigen rechtenvrije tracks uit `assets/muziek/`. Zacht onder de spraak (ca. −22 dB
-    t.o.v. de stem, ducking), korte fade-in en fade-out. Is de map leeg: geen muziek, en meld dat.
+11. **Muziek:** geen. Enkel mijn stem, geen achtergrondtrack.
 12. **Intro/outro:** geen. Meteen starten met mij, eindigen op de laatste zin.
 13. **Tempo:** licht dynamisch: een zachte punch-in (±10 %) bij elk product of elke prijs, verder rustig.
 14. **Nooit doen:**
