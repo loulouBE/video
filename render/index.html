@@ -179,6 +179,39 @@
         background: var(--terracotta);
       }
 
+      /* Webshop-cutaway: telefoon met scrollende homepage */
+      #shop .bg {
+        position: absolute;
+        inset: 0;
+        background: var(--creme);
+      }
+      #phone {
+        position: absolute;
+        left: 244px;
+        top: 190px;
+        width: 592px;
+        height: 1244px;
+        padding: 16px;
+        border-radius: 72px;
+        background: var(--antraciet);
+        box-shadow: 0 30px 70px rgba(29, 28, 28, 0.35);
+      }
+      #screen {
+        position: relative;
+        width: 560px;
+        height: 1212px;
+        border-radius: 58px;
+        overflow: hidden;
+        background: #ffffff;
+      }
+      #shopimg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 560px;
+        height: 2967px;
+      }
+
       /* Ondertitels: één regel, binnen de veilige zone (< 85 % hoogte) */
       .cap {
         position: absolute;
@@ -281,8 +314,25 @@
       </div>
 
       <!-- Kaart C: winkels + webshop -->
-      <div id="card-c" class="clip slot-top" data-start="12.62" data-duration="4.42" data-track-index="2">
+      <div id="card-c" class="clip slot-top" data-start="12.62" data-duration="1.08" data-track-index="2">
         <div id="card-c-in" class="card brandcard">
+          <div class="kicker">AVELGEM · RONSE</div>
+          <div class="url">loulou.store</div>
+          <div class="rule"></div>
+        </div>
+      </div>
+
+      <!-- Webshop-cutaway -->
+      <div id="shop" class="clip" data-start="13.70" data-duration="2.45" data-track-index="2" style="position:absolute;inset:0">
+        <div id="shop-bg" class="bg"></div>
+        <div id="phone">
+          <div id="screen"><img id="shopimg" src="assets/webshop-mobiel.jpg" alt="" /></div>
+        </div>
+      </div>
+
+      <!-- Eindkaart -->
+      <div id="card-d" class="clip slot-top" data-start="16.15" data-duration="0.89" data-track-index="2">
+        <div id="card-d-in" class="card brandcard">
           <div class="kicker">AVELGEM · RONSE</div>
           <div class="url">loulou.store</div>
           <div class="rule"></div>
@@ -307,6 +357,7 @@
       <div id="c14" class="clip cap" data-start="16.15" data-duration="0.89" data-track-index="1"><span><em>À découvrir !</em></span></div>
 
       <!-- Geluidjes (synthetisch, scripts/maak-sfx.sh) -->
+      <audio id="sfx-whoosh-scroll" src="assets/sfx/whoosh.wav" data-start="14.10" data-duration="0.42" data-volume="0.5" data-track-index="6"></audio>
       <audio id="sfx-pop-1" src="assets/sfx/pop.wav" data-start="0.35" data-duration="0.16" data-volume="0.3" data-track-index="4"></audio>
       <audio id="sfx-pop-2" src="assets/sfx/pop.wav" data-start="5.45" data-duration="0.16" data-volume="0.3" data-track-index="4"></audio>
       <audio id="sfx-pop-3" src="assets/sfx/pop.wav" data-start="12.62" data-duration="0.16" data-volume="0.3" data-track-index="4"></audio>
@@ -319,7 +370,7 @@
       <audio id="sfx-whoosh-10" src="assets/sfx/whoosh.wav" data-start="0.74" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
       <audio id="sfx-whoosh-11" src="assets/sfx/whoosh.wav" data-start="3.94" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
       <audio id="sfx-whoosh-12" src="assets/sfx/whoosh.wav" data-start="7.49" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
-      <audio id="sfx-whoosh-13" src="assets/sfx/whoosh.wav" data-start="14.14" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
+      <audio id="sfx-whoosh-13" src="assets/sfx/whoosh.wav" data-start="13.44" data-duration="0.42" data-volume="0.8" data-track-index="6"></audio>
     </div>
 
     <script>
@@ -351,6 +402,16 @@
 
       // Kaart C
       tl.fromTo("#card-c-in", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 12.62);
+
+      // Webshop-cutaway: telefoon schuift op, scrollt naar "Herfst", verdwijnt
+      tl.fromTo("#shop-bg", { opacity: 0 }, { opacity: 1, duration: 0.16, ease: "power1.out" }, 13.7);
+      tl.fromTo("#phone", { y: 700, opacity: 0 }, { y: 0, opacity: 1, duration: 0.42, ease: "power3.out" }, 13.7);
+      tl.fromTo("#shopimg", { y: 0 }, { y: -1651, duration: 1.7, ease: "power2.inOut" }, 14.15);
+      tl.to("#phone", { y: 500, opacity: 0, duration: 0.2, ease: "power2.in" }, 15.95);
+      tl.to("#shop-bg", { opacity: 0, duration: 0.12, ease: "power1.in" }, 16.03);
+
+      // Eindkaart
+      tl.fromTo("#card-d-in", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 16.15);
 
       // Ondertitels: pop-in
       document.querySelectorAll(".cap").forEach((el) => {

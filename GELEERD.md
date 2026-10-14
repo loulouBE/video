@@ -52,3 +52,6 @@ Lees dit vóór stap 5 van elke video. Vraag nooit opnieuw wat hier staat.
 - Plaatsnamen in het origineel laten (Ronse, Avelgem).
 - Geluidjes (pop / tik / whoosh) bij elk visueel moment.
 - Zoom-sprongen per zin, ondertitels die poppen met kernwoorden in terracotta, producten die inschuiven.
+- Als ik "loulou.store" / de webshop noem: cutaway naar een telefoon met de scrollende webshop
+  (`scripts/webshop-screenshot.cjs`, `assets/webshop-mobiel.jpg`), bij voorkeur scrollend naar de
+  producten die in de video zitten.
