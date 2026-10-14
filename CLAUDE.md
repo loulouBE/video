@@ -42,7 +42,10 @@ Eén vraag per keer, max. 15, met genummerde keuzes en een voorbeeldantwoord. An
    (standaard de laatste; staat er "beste", kies dan de vloeiendste volledige versie). Lijst wat je verwijderde
    met tijdcodes in `werk/<naam>/verwijderd.md`.
 4. **Knippen** — ffmpeg (trim/concat, opnieuw encoderen voor frame-nauwkeurige cuts) van de goede
-   segmenten → `werk/<naam>/cut.mp4`. Hertranscribeer `cut.mp4` (of herbereken de timestamps) zodat
+   segmenten → `werk/<naam>/cut.mp4`. **iPhone-opnames zijn vaak HDR (HLG/BT.2020)**: zet ze om naar
+   SDR BT.709 (`colorspace=all=bt709:iall=bt2020:itrc=bt709:fast=1` + tags `-color_primaries bt709
+   -color_trc bt709 -colorspace bt709`), anders kiest HyperFrames het HDR-pad: kaartachtergronden
+   vallen weg en kleuren verschuiven. Controleer met `ffprobe … color_transfer`. Hertranscribeer `cut.mp4` (of herbereken de timestamps) zodat
    ondertitels exact op de geknipte versie liggen. Vraagt `GELEERD.md` ondertitels in een andere taal,
    vertaal dan per zin naar `werk/<naam>/ondertitels.json` (natuurlijk en kort, verdeeld over de
    tijd van de originele zin).
@@ -51,7 +54,11 @@ Eén vraag per keer, max. 15, met genummerde keuzes en een voorbeeldantwoord. An
 6. **Renderen** — bouw de HyperFrames-compositie in `render/`: videospoor met `cut.mp4`, ondertitels
    uit het transcript (stijl, taal en stukgrootte volgens `GELEERD.md`), tekstanimaties, zwevende
    assets, intro/outro en muziek, maar alleen wat `GELEERD.md` vraagt.
-   `npx hyperframes check`, dan `npx hyperframes render` → `exports/<naam>-draft.mp4`.
+   `npx hyperframes check`, dan `npx hyperframes render --fps 25 -o werk/<naam>/render.mp4`, en
+   omzetten naar H.264 (`libx264 -crf 16`, bt709-tags) → `exports/<naam>-draft.mp4` (HyperFrames
+   levert HEVC, dat speelt niet overal af). Getimede elementen (`data-start`) nooit in een ongetimede
+   wrapper met achtergrond nesten: zet de achtergrond op de getimede clip zelf.
+   Ondertiteltijden: Whisper rekt woorden uit over pauzes; leg ze naast `silencedetect` (d=0.15).
 7. **Dubbelcheck (3×)** — haal frames op begin, midden en einde
    (`ffmpeg -ss <t> -i exports/<naam>-draft.mp4 -frames:v 1 werk/<naam>/check-<t>.png`) en bekijk ze:
    staat er tekst voor mijn gezicht? Kloppen de ondertitels met de spraak? Is niets afgesneden aan de

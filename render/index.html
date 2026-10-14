@@ -115,11 +115,11 @@
         height: 340px;
         background: var(--creme);
         box-shadow: 0 22px 50px rgba(29, 28, 28, 0.3);
-        opacity: 0;
       }
       .prod {
         position: absolute;
         inset: 20px;
+        opacity: 0;
       }
       .prod-inner {
         display: flex;
@@ -226,42 +226,42 @@
       </div>
 
       <!-- Productkaart: 6 nieuwigheden van vandaag -->
-      <div class="slot-top">
+      <div id="prodslot" class="clip slot-top" data-start="5.45" data-duration="6.75" data-track-index="3">
         <div id="prodcard" class="card">
-          <div id="p1" class="clip prod" data-start="5.45" data-duration="1.13" data-track-index="3">
+          <div id="p1" class="prod">
             <div class="prod-inner">
               <img src="assets/products/bloes-modena-choco.jpg" alt="" />
               <div class="tekst"><div class="naam">Blouse Modena</div><div class="prijs"><span>€74,95</span></div></div>
             </div>
           </div>
-          <div id="p2" class="clip prod" data-start="6.58" data-duration="1.12" data-track-index="3">
+          <div id="p2" class="prod">
             <div class="prod-inner">
               <img src="assets/products/bloes-monterrey-light-blue.png" alt="" />
               <div class="tekst"><div class="naam">Blouse Monterrey</div><div class="prijs"><span>€59,95</span></div></div>
             </div>
           </div>
-          <div id="p3" class="clip prod" data-start="7.70" data-duration="1.13" data-track-index="3">
+          <div id="p3" class="prod">
             <div class="prod-inner">
               <img src="assets/products/cardigan-montevideo-choco.png" alt="" />
               <div class="tekst"><div class="naam">Cardigan Montevideo</div><div class="prijs"><span>€59,95</span></div></div>
             </div>
           </div>
-          <div id="p4" class="clip prod" data-start="8.83" data-duration="1.12" data-track-index="3">
+          <div id="p4" class="prod">
             <div class="prod-inner">
               <img src="assets/products/rok-new-lyon-multi.jpg" alt="" />
               <div class="tekst"><div class="naam">Jupe New Lyon</div><div class="prijs"><span>€79,95</span></div></div>
             </div>
           </div>
-          <div id="p5" class="clip prod" data-start="9.95" data-duration="1.13" data-track-index="3">
+          <div id="p5" class="prod">
             <div class="prod-inner">
               <img src="assets/products/pull-masatepe-beige.jpg" alt="" />
-              <div class="tekst"><div class="naam">Pull Masatepe</div><div class="prijs"><span>€79,95</span></div></div>
+              <div class="tekst"><div class="naam">Pull Masatepe beige</div><div class="prijs"><span>€79,95</span></div></div>
             </div>
           </div>
-          <div id="p6" class="clip prod" data-start="11.08" data-duration="1.12" data-track-index="3">
+          <div id="p6" class="prod">
             <div class="prod-inner">
               <img src="assets/products/pull-masatepe-aubergine.png" alt="" />
-              <div class="tekst"><div class="naam">Pull Masatepe</div><div class="prijs"><span>€79,95</span></div></div>
+              <div class="tekst"><div class="naam">Pull Masatepe aubergine</div><div class="prijs"><span>€79,95</span></div></div>
             </div>
           </div>
         </div>
@@ -285,8 +285,8 @@
       <div id="c6" class="clip cap" data-start="5.40" data-duration="1.30" data-track-index="1"><span>Voici par exemple</span></div>
       <div id="c7" class="clip cap" data-start="6.70" data-duration="1.05" data-track-index="1"><span>les nouveautés</span></div>
       <div id="c8" class="clip cap" data-start="7.75" data-duration="1.55" data-track-index="1"><span>du jour.</span></div>
-      <div id="c9" class="clip cap" data-start="9.70" data-duration="1.05" data-track-index="1"><span>Chaque jour</span></div>
-      <div id="c10" class="clip cap" data-start="10.75" data-duration="1.20" data-track-index="1"><span>du nouveau en boutique,</span></div>
+      <div id="c9" class="clip cap" data-start="9.70" data-duration="0.55" data-track-index="1"><span>Chaque jour</span></div>
+      <div id="c10" class="clip cap" data-start="10.25" data-duration="2.15" data-track-index="1"><span>du nouveau en boutique,</span></div>
       <div id="c11" class="clip cap" data-start="12.40" data-duration="1.20" data-track-index="1"><span>à Avelgem et Renaix,</span></div>
       <div id="c12" class="clip cap" data-start="13.70" data-duration="0.70" data-track-index="1"><span>mais aussi</span></div>
       <div id="c13" class="clip cap" data-start="14.40" data-duration="1.50" data-track-index="1"><span>sur loulou.store.</span></div>
@@ -305,17 +305,15 @@
       tl.fromTo("#card-a-in", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0.35);
       tl.to("#card-a-in", { opacity: 0, y: -12, duration: 0.25, ease: "power1.in" }, 2.15);
 
-      // Productkaart: pop-in, wissel per product, uit
+      // Productkaart: pop-in, wissel per product (één product tegelijk), uit
       tl.fromTo("#prodcard", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 5.45);
-      [
-        ["#p2 .prod-inner", 6.58],
-        ["#p3 .prod-inner", 7.7],
-        ["#p4 .prod-inner", 8.83],
-        ["#p5 .prod-inner", 9.95],
-        ["#p6 .prod-inner", 11.08],
-      ].forEach(([sel, t]) => {
-        tl.fromTo(sel, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power1.out" }, t);
-      });
+      const wissels = [5.45, 6.58, 7.7, 8.83, 9.95, 11.08, 12.2];
+      for (let i = 0; i < 6; i++) {
+        const sel = "#p" + (i + 1);
+        tl.set(sel, { opacity: 1 }, wissels[i]);
+        if (i > 0) tl.fromTo(sel + " .prod-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power1.out" }, wissels[i]);
+        if (i < 5) tl.set(sel, { opacity: 0 }, wissels[i + 1]);
+      }
       tl.to("#prodcard", { opacity: 0, scale: 0.95, duration: 0.22, ease: "power1.in" }, 11.98);
 
       // Kaart C
