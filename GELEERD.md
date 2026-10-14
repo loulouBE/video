@@ -26,8 +26,9 @@ Lees dit vóór stap 5 van elke video. Vraag nooit opnieuw wat hier staat.
 8. **Zwevende foto's:** bij elk genoemd product zweeft de packshot ernaast (uit `assets/`; titels en
    prijzen staan in `assets/producten.json`, gebruik die voor de nadruktekst).
    Maximaal 1 tegelijk, witte rand + zachte schaduw. Nooit over het gezicht.
-9. **Stiltes:** natuurlijk: stiltes vanaf 600 ms wegknippen (`silencedetect d=0.6`, ca. −35 dB),
-   200 ms ademruimte voor en na elke zin laten staan.
+9. **Stiltes:** stiltes vanaf 600 ms wegknippen (`silencedetect d=0.6`, ca. −35 dB), 200 ms
+   ademruimte tussen zinnen. **Binnen een zin** ook kortere pauzes (vanaf ±0,2 s) bijna helemaal
+   wegknippen (laat ±50 ms), zodat een zin vloeiend doorloopt.
 10. **Slechte takes:** bij herhalingen/herstarts de **beste** poging houden (vloeiendst, minste
     "euh", volledige zin), niet automatisch de laatste. In de oplevering melden welke ik koos.
 11. **Muziek:** geen achtergrondtrack. **Wel geluidjes (SFX)**: pop bij kaartjes, tik bij productwissel,
@@ -46,10 +47,12 @@ Lees dit vóór stap 5 van elke video. Vraag nooit opnieuw wat hier staat.
 
 - IMG_6134: "Renaix" voor Ronse: plaatsnamen niet vertalen.
 - IMG_6134: video zonder geluidjes en met te weinig dynamiek (één punch-in, rustige ondertitels).
+- IMG_6134: te lange pauze midden in een zin ("nieuwigheden … van vandaag").
 
 ## Doe in de plaats
 
 - Plaatsnamen in het origineel laten (Ronse, Avelgem).
+- Pauzes binnen een zin wegknippen: check de energie per 50 ms, niet alleen silencedetect d=0.6.
 - Geluidjes (pop / tik / whoosh) bij elk visueel moment.
 - Zoom-sprongen per zin, ondertitels die poppen met kernwoorden in terracotta, producten die inschuiven.
 - Als ik "loulou.store" / de webshop noem: cutaway naar een telefoon met de scrollende webshop
