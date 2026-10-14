@@ -38,15 +38,19 @@ Eén vraag per keer, max. 15, met genummerde keuzes en een voorbeeldantwoord. An
 2. **Stiltes eruit** — `ffmpeg -i … -af silencedetect=noise=-35dB:d=<drempel> -f null -`; drempel en
    ademruimte uit `GELEERD.md`. Bouw `werk/<naam>/cutlist.json` (te behouden segmenten).
 3. **Slechte takes eruit** — zoek in het transcript herhaalde zinnen en herstart-signalen
-   ("euh, opnieuw", "nee wacht", "nog eens"); behoud de laatste poging. Lijst wat je verwijderde
+   ("euh, opnieuw", "nee wacht", "nog eens"); behoud de poging die `GELEERD.md` voorschrijft
+   (standaard de laatste; staat er "beste", kies dan de vloeiendste volledige versie). Lijst wat je verwijderde
    met tijdcodes in `werk/<naam>/verwijderd.md`.
 4. **Knippen** — ffmpeg (trim/concat, opnieuw encoderen voor frame-nauwkeurige cuts) van de goede
    segmenten → `werk/<naam>/cut.mp4`. Hertranscribeer `cut.mp4` (of herbereken de timestamps) zodat
-   ondertitels exact op de geknipte versie liggen.
+   ondertitels exact op de geknipte versie liggen. Vraagt `GELEERD.md` ondertitels in een andere taal,
+   vertaal dan per zin naar `werk/<naam>/ondertitels.json` (natuurlijk en kort, verdeeld over de
+   tijd van de originele zin).
 5. **Animaties plannen** — lees eerst `GELEERD.md`. Maak `werk/<naam>/plan.md`: per tijdcode welke
    bewegende tekst, welke foto uit `assets/` zweeft waar, welke zoom. Nadrukwoorden volgens `GELEERD.md`.
 6. **Renderen** — bouw de HyperFrames-compositie in `render/`: videospoor met `cut.mp4`, ondertitels
-   woord-voor-woord uit het transcript, tekstanimaties, zwevende assets, intro/outro, muziek.
+   uit het transcript (stijl, taal en stukgrootte volgens `GELEERD.md`), tekstanimaties, zwevende
+   assets, intro/outro en muziek, maar alleen wat `GELEERD.md` vraagt.
    `npx hyperframes check`, dan `npx hyperframes render` → `exports/<naam>-draft.mp4`.
 7. **Dubbelcheck (3×)** — haal frames op begin, midden en einde
    (`ffmpeg -ss <t> -i exports/<naam>-draft.mp4 -frames:v 1 werk/<naam>/check-<t>.png`) en bekijk ze:
