@@ -1,0 +1,5 @@
+werk/
+node_modules/
+render/node_modules/
+render/renders/
+.DS_Store
