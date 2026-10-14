@@ -108,54 +108,65 @@
         background: var(--terracotta);
       }
 
-      /* Productkaart: één kaart, inhoud wisselt per product */
+      /* Productkaart: één kaart, inhoud wisselt per product (foto links, naam + prijs rechts) */
       #prodcard {
         position: relative;
-        width: 430px;
-        height: 450px;
-        padding: 14px;
-        background: #ffffff;
+        width: 860px;
+        height: 340px;
+        background: var(--creme);
+        box-shadow: 0 22px 50px rgba(29, 28, 28, 0.3);
         opacity: 0;
       }
       .prod {
         position: absolute;
-        inset: 14px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        inset: 20px;
       }
       .prod-inner {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         width: 100%;
         height: 100%;
       }
       .prod img {
         display: block;
+        flex: 0 0 300px;
         width: 300px;
         height: 300px;
         object-fit: contain;
+        background: #ffffff;
+        border: 8px solid #ffffff;
+        border-radius: 14px;
+      }
+      .prod .tekst {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 36px;
+        width: 480px;
+        text-align: left;
       }
       .prod .naam {
+        display: block;
         font-family: "Noto Serif", serif;
-        font-size: 34px;
-        line-height: 1.15;
+        font-weight: 600;
+        font-size: 54px;
+        line-height: 1.12;
         color: var(--antraciet);
-        margin-top: 8px;
-        white-space: nowrap;
       }
       .prod .prijs {
+        display: block;
+        margin-top: 22px;
         font-weight: 700;
-        font-size: 44px;
+        font-size: 60px;
         line-height: 1.1;
         color: var(--antraciet);
-        margin-top: 4px;
       }
       .prod .prijs span {
         display: inline-block;
-        padding: 2px 16px;
-        border-radius: 10px;
+        padding: 4px 20px 6px;
+        border-radius: 12px;
         background: var(--terracotta);
       }
 
@@ -220,43 +231,37 @@
           <div id="p1" class="clip prod" data-start="5.45" data-duration="1.13" data-track-index="3">
             <div class="prod-inner">
               <img src="assets/products/bloes-modena-choco.jpg" alt="" />
-              <div class="naam">Blouse Modena</div>
-              <div class="prijs"><span>€74,95</span></div>
+              <div class="tekst"><div class="naam">Blouse Modena</div><div class="prijs"><span>€74,95</span></div></div>
             </div>
           </div>
           <div id="p2" class="clip prod" data-start="6.58" data-duration="1.12" data-track-index="3">
             <div class="prod-inner">
               <img src="assets/products/bloes-monterrey-light-blue.png" alt="" />
-              <div class="naam">Blouse Monterrey</div>
-              <div class="prijs"><span>€59,95</span></div>
+              <div class="tekst"><div class="naam">Blouse Monterrey</div><div class="prijs"><span>€59,95</span></div></div>
             </div>
           </div>
           <div id="p3" class="clip prod" data-start="7.70" data-duration="1.13" data-track-index="3">
             <div class="prod-inner">
               <img src="assets/products/cardigan-montevideo-choco.png" alt="" />
-              <div class="naam">Cardigan Montevideo</div>
-              <div class="prijs"><span>€59,95</span></div>
+              <div class="tekst"><div class="naam">Cardigan Montevideo</div><div class="prijs"><span>€59,95</span></div></div>
             </div>
           </div>
           <div id="p4" class="clip prod" data-start="8.83" data-duration="1.12" data-track-index="3">
             <div class="prod-inner">
               <img src="assets/products/rok-new-lyon-multi.jpg" alt="" />
-              <div class="naam">Jupe New Lyon</div>
-              <div class="prijs"><span>€79,95</span></div>
+              <div class="tekst"><div class="naam">Jupe New Lyon</div><div class="prijs"><span>€79,95</span></div></div>
             </div>
           </div>
           <div id="p5" class="clip prod" data-start="9.95" data-duration="1.13" data-track-index="3">
             <div class="prod-inner">
               <img src="assets/products/pull-masatepe-beige.jpg" alt="" />
-              <div class="naam">Pull Masatepe</div>
-              <div class="prijs"><span>€79,95</span></div>
+              <div class="tekst"><div class="naam">Pull Masatepe</div><div class="prijs"><span>€79,95</span></div></div>
             </div>
           </div>
           <div id="p6" class="clip prod" data-start="11.08" data-duration="1.12" data-track-index="3">
             <div class="prod-inner">
               <img src="assets/products/pull-masatepe-aubergine.png" alt="" />
-              <div class="naam">Pull Masatepe</div>
-              <div class="prijs"><span>€79,95</span></div>
+              <div class="tekst"><div class="naam">Pull Masatepe</div><div class="prijs"><span>€79,95</span></div></div>
             </div>
           </div>
         </div>
@@ -265,7 +270,7 @@
       <!-- Kaart C: winkels + webshop -->
       <div id="card-c" class="clip slot-top" data-start="12.55" data-duration="4.49" data-track-index="2">
         <div id="card-c-in" class="card brandcard">
-          <div class="kicker">AVELGEM · RONSE</div>
+          <div class="kicker">AVELGEM · RENAIX</div>
           <div class="url">loulou.store</div>
           <div class="rule"></div>
         </div>
