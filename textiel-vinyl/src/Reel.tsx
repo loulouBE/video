@@ -22,7 +22,7 @@ laadFonts();
 
 // Geluidseffecten: [tijd (s), bestand, volume]
 const SFX: [number, string, number][] = [
-  ...[0.25, 0.4, 0.55, 0.7, 0.85, 1.0, 1.15, 1.3, 1.45].map((s): [number, string, number] => [s, "tik", 0.45]),
+  ...[0.25, 0.4, 0.55, 0.7, 0.85, 1.0, 1.15, 1.3].map((s): [number, string, number] => [s, "tik", 0.45]),
   [1.1, "glitter", 0.7],
   [3.9, "whoosh", 0.6],
   [TIKKEN.registreerKnop, "tik", 1],

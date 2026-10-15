@@ -10,11 +10,11 @@ export const OPENING_HOEZEN = [
   { x: 820, y: 90, s: 230, r: 9, d: 0.4 },
   { x: -20, y: 520, s: 220, r: 7, d: 0.55 },
   { x: 880, y: 560, s: 220, r: -8, d: 0.7 },
-  { x: 30, y: 1220, s: 260, r: -6, d: 0.85 },
-  { x: 410, y: 1300, s: 280, r: 4, d: 1.0 },
-  { x: 790, y: 1210, s: 260, r: 8, d: 1.15 },
-  { x: 170, y: 1560, s: 240, r: -4, d: 1.3 },
-  { x: 640, y: 1580, s: 240, r: 6, d: 1.45 },
+  // onderaan links en rechts van de draaiende plaat, zodat het Lou Lou-label vrij blijft
+  { x: 10, y: 1190, s: 250, r: -6, d: 0.85 },
+  { x: 820, y: 1180, s: 250, r: 8, d: 1.0 },
+  { x: 30, y: 1560, s: 230, r: -4, d: 1.15 },
+  { x: 820, y: 1580, s: 230, r: 6, d: 1.3 },
 ];
 
 // ============================================================================
@@ -36,15 +36,22 @@ export const Opening: React.FC<{ t: number }> = ({ t }) => {
           </div>
         </AbsoluteFill>
       )}
+      {/* draaiende plaat met het gouden Lou Lou-logo op het label */}
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", opacity: 0.92 * (1 - closeUp) }}>
+        <div style={{ transform: `translateY(470px) scale(${lerp(1.1, 1.0, logoP)})` }}>
+          <Vinyl
+            grootte={1400}
+            hoek={t * 160}
+            labelKleur={KLEUR.bordeauxDiep}
+            glans={0.8}
+            label={<Img src={staticFile("img/logo-loulou-goud.svg")} style={{ width: 430, height: 430, filter: "drop-shadow(0 0 18px rgba(233,201,135,0.35))" }} />}
+          />
+        </div>
+      </AbsoluteFill>
       {/* bekende hoezen poppen rond logo en vraag (achter de tekst) */}
       <PopHoezen t={t} hoezen={BEKENDE_HOEZEN} plekken={OPENING_HOEZEN} />
       {/* logo + vraag */}
       <AbsoluteFill style={{ opacity: 1 - closeUp }}>
-        <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", opacity: 0.5 }}>
-          <div style={{ transform: `translateY(420px) scale(${lerp(1.1, 1.0, logoP)})` }}>
-            <Vinyl grootte={1400} hoek={hoek * 0.25} labelKleur={KLEUR.bordeauxDiep} glans={0.7} />
-          </div>
-        </AbsoluteFill>
         <div style={{ position: "absolute", top: 250, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
           <div style={{ transform: `scale(${lerp(0.6, 1, logoP)})`, opacity: logoP, filter: `drop-shadow(0 0 ${30 * logoP}px rgba(233,201,135,0.45))` }}>
             <Logo breedte={640} />
