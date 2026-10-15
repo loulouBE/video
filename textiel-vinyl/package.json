@@ -1,0 +1,22 @@
+{
+  "name": "textiel-vinyl-reel",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render TextielVinylReel out/textiel-vinyl-reel.mp4",
+    "still": "remotion still TextielVinylReel out/still.png"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.535",
+    "@remotion/renderer": "^4.0.535",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.535"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "bwip-js": "^4.5.1",
+    "typescript": "^5.6.3"
+  }
+}

@@ -10,3 +10,5 @@ opnames/*
 !opnames/.gitkeep
 # eindvideo's worden in de chat geleverd, niet in git
 exports/*.mp4
+textiel-vinyl/node_modules/
+textiel-vinyl/out/
