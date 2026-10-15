@@ -1,0 +1,56 @@
+[
+ {
+  "artiest": "ABBA",
+  "titel": "Arrival",
+  "bestand": "img/hoezen/abba-arrival.jpg",
+  "mbid": "e464e167-83ab-3b59-88bd-262cf552056e"
+ },
+ {
+  "artiest": "Fleetwood Mac",
+  "titel": "Rumours",
+  "bestand": "img/hoezen/fleetwood-mac-rumours.jpg",
+  "mbid": "416bb5e5-c7d1-3977-8fd7-7c9daf6c2be6"
+ },
+ {
+  "artiest": "Michael Jackson",
+  "titel": "Thriller",
+  "bestand": "img/hoezen/michael-jackson-thriller.jpg",
+  "mbid": "f32fab67-77dd-3937-addc-9062e28e4c37"
+ },
+ {
+  "artiest": "Pink Floyd",
+  "titel": "The Dark Side of the Moon",
+  "bestand": "img/hoezen/pink-floyd-the-dark-side-of-the-moon.jpg",
+  "mbid": "f5093c06-23e3-404f-aeaa-40f72885ee3a"
+ },
+ {
+  "artiest": "Queen",
+  "titel": "A Night at the Opera",
+  "bestand": "img/hoezen/queen-a-night-at-the-opera.jpg",
+  "mbid": "6b47c9a0-b9e1-3df9-a5e8-50a6ce0dbdbd"
+ },
+ {
+  "artiest": "Donna Summer",
+  "titel": "Bad Girls",
+  "bestand": "img/hoezen/donna-summer-bad-girls.jpg",
+  "mbid": "f7568cc7-4c09-3a47-abbc-593e7aaac7d6"
+ },
+ {
+  "artiest": "Chic",
+  "titel": "C'est Chic",
+  "bestand": "img/hoezen/chic-c-est-chic.jpg",
+  "mbid": "db46b19c-0e97-30de-ba53-7e823104d14a"
+ },
+ {
+  "artiest": "David Bowie",
+  "titel": "Let's Dance",
+  "bestand": "img/hoezen/david-bowie-let-s-dance.jpg",
+  "mbid": "75c2bddf-1799-3eda-b6b3-a0cf5189d8ed"
+ },
+ {
+  "artiest": "Earth, Wind & Fire",
+  "titel": "I Am",
+  "bestand": "img/hoezen/earth--wind---fire-i-am.jpg",
+  "mbid": "866e9d8e-200e-334c-8df6-9b8f8384bb22"
+ }
+]

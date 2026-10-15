@@ -83,6 +83,10 @@ Verandert de duur, pas dan ook `DUUR` in `src/config.ts` en in `audio-src/maak_m
 - Dashboard "Dag Sofie", "Plaat toevoegen", camerascherm, editiekeuze, registratieformulier en "Mijn platen": nagebouwd in de stijl van de site (Cormorant Garamond, Jost, kleuren uit `styles.css`). "Sofie" en haar e-mail/telefoon zijn fictief.
 - Het camerabeeld van de hoes-achterkant is een illustratie (de echte achterkant was niet beschikbaar).
 
+**Bekende platenhoezen in de opening**
+- ABBA, Fleetwood Mac, Michael Jackson, Pink Floyd, Queen, Donna Summer, Chic, David Bowie, Earth, Wind & Fire: hoezen via het Cover Art Archive (MusicBrainz), lijst in `public/img/hoezen/hoezen.json`, posities in `OPENING_HOEZEN` (`src/scenes/Scenes.tsx`) en in `src/KortReel.tsx`.
+- Let op: albumhoezen zijn auteursrechtelijk beschermd. Voor een platenverkoop is tonen gangbaar, maar het blijft een eigen afweging (zeker bij betaalde advertenties). Wegnemen: maak `HOEZEN` in `src/config.ts` leeg (`[]`) en verwijder de plekken.
+
 **Bewust zonder cijfers / concept**
 - **Richtprijs:** in de video is het bedrag vervaagd ("Vanaf ▒▒ · ▒ te koop"). De echte richtprijs wordt op de site live bij Discogs opgezocht; zonder Discogs-sleutel konden we die niet ophalen, en we verzinnen geen marktwaarde. Wil je een echt bedrag tonen: vervang de `Wazig`-component in `src/components/schermen.tsx` door het bedrag dat de site toont.
 - **Goed doel:** op de site staat geen naam van het goede doel; de video noemt daarom geen naam.

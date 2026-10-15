@@ -2,10 +2,10 @@
 // Hergebruikt de animaties van de lange versie via een tijd-mapping (snellere montage).
 import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { AUDIO, EVENT, FONT, KLEUR, SITE } from "./config";
+import { AUDIO, EVENT, FONT, HOEZEN, KLEUR, SITE } from "./config";
 import { laadFonts, lerp, tussen, inUit, zacht } from "./util";
 import { Achtergrond, Eyebrow, Flits, Glitter, Grain, goudTekst, Lichtlek, Vignet, Discolicht } from "./components/sfeer";
-import { KineTitel, Logo, Vinyl } from "./components/elementen";
+import { KineTitel, Logo, PopHoezen, Vinyl } from "./components/elementen";
 import { TelefoonFlow, TelefoonGloed } from "./scenes/TelefoonFlow";
 import { GoedDoel, Platenbak } from "./scenes/Scenes";
 
@@ -63,6 +63,19 @@ const Hook: React.FC<{ t: number }> = ({ t }) => {
           <Vinyl grootte={1300} hoek={t * 300} labelKleur={KLEUR.bordeaux} label={<Logo breedte={300} />} />
         </div>
       </AbsoluteFill>
+      <PopHoezen
+        t={t}
+        hoezen={HOEZEN}
+        plekken={[
+          { x: 30, y: 70, s: 200, r: -10, d: 0.15 },
+          { x: 850, y: 60, s: 200, r: 9, d: 0.25 },
+          { x: 40, y: 1060, s: 240, r: -6, d: 0.35 },
+          { x: 420, y: 1130, s: 250, r: 4, d: 0.45 },
+          { x: 800, y: 1060, s: 240, r: 8, d: 0.55 },
+          { x: 220, y: 1400, s: 220, r: -4, d: 0.65 },
+          { x: 640, y: 1420, s: 220, r: 6, d: 0.75 },
+        ]}
+      />
       <div style={{ position: "absolute", top: 330, left: 50, right: 50 }}>
         {KORT.hook.map((r, i) => (
           <KineTitel key={i} tekst={r} t={t} start={0.05 + i * 0.18} grootte={i === 2 ? 150 : 108} stagger={0.012} />
@@ -203,6 +216,7 @@ const Oproep: React.FC<{ t: number }> = ({ t }) => {
 
 // Geluidseffecten in de korte versie
 const SFX: [number, string, number][] = [
+  ...[0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75].map((s): [number, string, number] => [s, "tik", 0.45]),
   [0.05, "glitter", 0.6],
   [0.7, "tik", 0.8],
   [0.85, "tik", 0.8],

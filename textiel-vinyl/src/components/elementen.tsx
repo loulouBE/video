@@ -1,5 +1,5 @@
 import React from "react";
-import { Img, staticFile } from "remotion";
+import { Easing, Img, staticFile } from "remotion";
 import { FONT, KLEUR } from "../config";
 import { tussen, zacht } from "../util";
 import { goudTekst } from "./sfeer";
@@ -304,4 +304,40 @@ export const KineTitel: React.FC<{
 // Logo TEXTIEL & VINYL (origineel bestand)
 export const Logo: React.FC<{ breedte: number; style?: React.CSSProperties }> = ({ breedte, style }) => (
   <Img src={staticFile("img/logo-textiel-vinyl.png")} style={{ width: breedte, height: "auto", ...style }} />
+);
+
+// ---------------------------------------------------------------------------
+// Platenhoezen die een voor een in beeld poppen (opening / hook)
+// ---------------------------------------------------------------------------
+export type HoesPlek = { x: number; y: number; s: number; r: number; d: number };
+
+export const PopHoezen: React.FC<{ t: number; hoezen: string[]; plekken: HoesPlek[] }> = ({ t, hoezen, plekken }) => (
+  <>
+    {plekken.map((p, i) => {
+      const src = hoezen[i % hoezen.length];
+      const k = tussen(t, p.d, p.d + 0.45, Easing.bezier(0.34, 1.56, 0.64, 1)); // pop met lichte overshoot
+      if (k <= 0) return null;
+      const zweef = Math.sin((t - p.d) * 1.6 + i) * 8;
+      return (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            left: p.x,
+            top: p.y + zweef,
+            width: p.s,
+            height: p.s,
+            transform: `scale(${k}) rotate(${p.r + (1 - Math.min(1, k)) * 18}deg)`,
+            opacity: Math.min(1, k * 1.5),
+            boxShadow: "0 18px 40px rgba(0,0,0,0.6), 0 0 0 2px rgba(241,228,210,0.25)",
+            borderRadius: 4,
+            overflow: "hidden",
+          }}
+        >
+          <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(255,255,255,0.18), transparent 40%)" }} />
+        </div>
+      );
+    })}
+  </>
 );

@@ -1,9 +1,21 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { EVENT, FONT, KLEUR, PLAAT, SCENE, SITE, TEKST } from "../config";
+import { EVENT, FONT, HOEZEN as BEKENDE_HOEZEN, KLEUR, PLAAT, SCENE, SITE, TEKST } from "../config";
 import { inUit, lerp, tussen, venster, zacht, rnd } from "../util";
-import { KineTitel, Logo, Stappen, Vinyl } from "../components/elementen";
+import { KineTitel, Logo, PopHoezen, Stappen, Vinyl } from "../components/elementen";
 import { Discolicht, Eyebrow, Flits, Glitter, goudTekst, Lichtlek } from "../components/sfeer";
+
+export const OPENING_HOEZEN = [
+  { x: 30, y: 110, s: 230, r: -10, d: 0.25 },
+  { x: 820, y: 90, s: 230, r: 9, d: 0.4 },
+  { x: -20, y: 520, s: 220, r: 7, d: 0.55 },
+  { x: 880, y: 560, s: 220, r: -8, d: 0.7 },
+  { x: 30, y: 1220, s: 260, r: -6, d: 0.85 },
+  { x: 410, y: 1300, s: 280, r: 4, d: 1.0 },
+  { x: 790, y: 1210, s: 260, r: 8, d: 1.15 },
+  { x: 170, y: 1560, s: 240, r: -4, d: 1.3 },
+  { x: 640, y: 1580, s: 240, r: 6, d: 1.45 },
+];
 
 // ============================================================================
 // SCÈNE 1 · 0–4 s · draaiende plaat → logo → vraag → antwoord
@@ -24,6 +36,8 @@ export const Opening: React.FC<{ t: number }> = ({ t }) => {
           </div>
         </AbsoluteFill>
       )}
+      {/* bekende hoezen poppen rond logo en vraag (achter de tekst) */}
+      <PopHoezen t={t} hoezen={BEKENDE_HOEZEN} plekken={OPENING_HOEZEN} />
       {/* logo + vraag */}
       <AbsoluteFill style={{ opacity: 1 - closeUp }}>
         <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", opacity: 0.5 }}>

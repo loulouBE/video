@@ -67,6 +67,19 @@ export const EVENT = {
   adres: "Abeelstraat 25 · Ronse",
 };
 
+// Bekende platenhoezen die in de opening poppen (Cover Art Archive, zie public/img/hoezen/hoezen.json)
+export const HOEZEN = [
+  "img/hoezen/abba-arrival.jpg",
+  "img/hoezen/fleetwood-mac-rumours.jpg",
+  "img/hoezen/michael-jackson-thriller.jpg",
+  "img/hoezen/pink-floyd-the-dark-side-of-the-moon.jpg",
+  "img/hoezen/queen-a-night-at-the-opera.jpg",
+  "img/hoezen/donna-summer-bad-girls.jpg",
+  "img/hoezen/chic-c-est-chic.jpg",
+  "img/hoezen/david-bowie-let-s-dance.jpg",
+  "img/hoezen/earth--wind---fire-i-am.jpg"
+];
+
 // Scènes (start, einde) in seconden
 export const SCENE = {
   opening: [0, 4],
