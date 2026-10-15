@@ -48,10 +48,12 @@ Lees dit vóór stap 5 van elke video. Vraag nooit opnieuw wat hier staat.
 - IMG_6134: "Renaix" voor Ronse: plaatsnamen niet vertalen.
 - IMG_6134: video zonder geluidjes en met te weinig dynamiek (één punch-in, rustige ondertitels).
 - IMG_6134: te lange pauze midden in een zin ("nieuwigheden … van vandaag").
+- TEXTIEL & VINYL: te veel tekst in beeld (uitlegkadertjes per stap, extra slogan "Verkoop ze bij Lou Lou!").
 
 ## Doe in de plaats
 
 - Plaatsnamen in het origineel laten (Ronse, Avelgem).
+- Met voice-over: weinig tekst in beeld. Enkel korte titels (+ URL); de stem legt uit. Geen extra kadertjes.
 - Pauzes binnen een zin wegknippen: check de energie per 50 ms, niet alleen silencedetect d=0.6.
 - Geluidjes (pop / tik / whoosh) bij elk visueel moment.
 - Zoom-sprongen per zin, ondertitels die poppen met kernwoorden in terracotta, producten die inschuiven.

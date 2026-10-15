@@ -82,7 +82,7 @@ export const SCENE = {
 
 export const TEKST = {
   openingVraag: ["STAAN ER BIJ JOU", "NOG PLATEN", "OP ZOLDER?"],
-  openingAntwoord: "VERKOOP ZE BIJ LOU LOU!",
+  openingAntwoord: "", // leeg = niet tonen (de voice-over zegt het)
   stappen: [
     { nr: 1, titel: "REGISTREER JE VINYL ONLINE" },
     { nr: 2, titel: "SCAN DE BARCODE" },
@@ -90,7 +90,8 @@ export const TEKST = {
     { nr: 4, titel: "JIJ BEPAALT DE PRIJS!" },
     { nr: 5, titel: "WIJ VERKOPEN JOUW PLATEN!" },
   ],
-  // groot uitlegkader per stap (begrijpelijk zonder geluid)
+  // uitlegkader per stap: uitgeschakeld (te druk; de voice-over legt het uit)
+  toonUitleg: false,
   stapUitleg: [
     "op events.loulou.store",
     "Richt je camera op de streepjescode",

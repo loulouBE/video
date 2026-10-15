@@ -41,6 +41,7 @@ export const Opening: React.FC<{ t: number }> = ({ t }) => {
             <KineTitel key={i} tekst={r} t={t} start={1.55 + i * 0.28} grootte={104} spatiering="0.03em" stagger={0.018} />
           ))}
         </div>
+        {TEKST.openingAntwoord && (
         <div style={{ position: "absolute", top: 1180, left: 40, right: 40, textAlign: "center" }}>
           <div
             style={{
@@ -58,6 +59,7 @@ export const Opening: React.FC<{ t: number }> = ({ t }) => {
           </div>
           <div style={{ height: 4, margin: "18px auto 0", width: `${tussen(t, 3.0, 3.5) * 760}px`, background: "linear-gradient(90deg, transparent, #E9C987, transparent)" }} />
         </div>
+        )}
       </AbsoluteFill>
       <Lichtlek t={t} start={0.1} duur={1.0} x={80} />
       <Flits t={t} op={1.1} duur={0.4} />
@@ -92,7 +94,7 @@ export const StapTitels: React.FC<{ t: number }> = ({ t }) => {
         const van = a + 0.9;
         const tot = idx === 4 ? 29.2 : b - 0.25;
         const p = tussen(t, van, van + 0.35) * (1 - tussen(t, tot, tot + 0.25));
-        if (p <= 0) return null;
+        if (p <= 0 || !TEKST.toonUitleg) return null;
         return (
           <div style={{ position: "absolute", top: 1400, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: p, transform: `translateY(${(1 - p) * 30}px) scale(${0.94 + p * 0.06})` }}>
             <div style={{ maxWidth: 820, padding: "20px 34px", borderRadius: 8, background: "rgba(16,12,13,0.9)", border: `2px solid ${KLEUR.goud}`, boxShadow: "0 18px 50px rgba(0,0,0,0.6), 0 0 30px rgba(197,160,106,0.25)", fontFamily: FONT.sans, fontWeight: 500, fontSize: 40, lineHeight: 1.25, color: KLEUR.champagne, textAlign: "center" }}>
