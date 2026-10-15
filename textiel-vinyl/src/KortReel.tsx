@@ -10,6 +10,17 @@ import { TelefoonFlow, TelefoonGloed } from "./scenes/TelefoonFlow";
 import { GoedDoel, Platenbak } from "./scenes/Scenes";
 
 laadFonts();
+import VO_KORT from "./voiceover-kort.json";
+
+const muziekVolume = (t: number) => {
+  let d = 0;
+  for (const v of VO_KORT) {
+    const a = v.op - 0.25, b = v.op + v.duur + 0.15;
+    const p = t < a || t > b + 0.4 ? 0 : t < v.op ? (t - a) / 0.25 : t <= b ? 1 : 1 - (t - b) / 0.4;
+    d = Math.max(d, p);
+  }
+  return AUDIO.muziekVolume + (AUDIO.muziekOnderStem - AUDIO.muziekVolume) * d;
+};
 
 export const KORT_DUUR = 22;
 
@@ -247,7 +258,12 @@ export const KortReel: React.FC = () => {
       <Vignet sterkte={0.6} />
       <Grain sterkte={0.07} />
 
-      <Audio src={staticFile("audio/muziek-kort.wav")} volume={AUDIO.muziekVolume} />
+      <Audio src={staticFile("audio/muziek-kort.wav")} volume={(f) => muziekVolume(f / fps)} />
+      {VO_KORT.map((v, i) => (
+        <Sequence key={`vo${i}`} from={Math.round(v.op * fps)} durationInFrames={Math.ceil((v.duur + 0.2) * fps)}>
+          <Audio src={staticFile(v.bestand)} volume={AUDIO.stemVolume} />
+        </Sequence>
+      ))}
       {SFX.map(([s, naam, v], i) => (
         <Sequence key={i} from={Math.round(s * fps)} durationInFrames={Math.round(1.2 * fps)}>
           <Audio src={staticFile(`audio/sfx-${naam}.wav`)} volume={v * AUDIO.sfxVolume} />

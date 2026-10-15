@@ -1,0 +1,32 @@
+[
+ {
+  "bestand": "audio/vo-kort-01.wav",
+  "op": 0.0,
+  "duur": 2.08
+ },
+ {
+  "bestand": "audio/vo-kort-02.wav",
+  "op": 2.2,
+  "duur": 3.98
+ },
+ {
+  "bestand": "audio/vo-kort-03.wav",
+  "op": 6.4,
+  "duur": 3.34
+ },
+ {
+  "bestand": "audio/vo-kort-04.wav",
+  "op": 10.1,
+  "duur": 4.35
+ },
+ {
+  "bestand": "audio/vo-kort-05.wav",
+  "op": 14.5,
+  "duur": 3.08
+ },
+ {
+  "bestand": "audio/vo-kort-06.wav",
+  "op": 17.65,
+  "duur": 3.22
+ }
+]
