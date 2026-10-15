@@ -5,6 +5,18 @@ import { laadFonts } from "./util";
 import { Achtergrond, Glitter, Grain, Lichtlek, Vignet } from "./components/sfeer";
 import { TelefoonFlow, TelefoonGloed, TIKKEN, MOMENTEN } from "./scenes/TelefoonFlow";
 import { DJs, Einde, GoedDoel, Opening, Platenbak, StapTitels } from "./scenes/Scenes";
+import VOICEOVER from "./voiceover.json";
+
+// Muziek zachter zetten (ducking) terwijl de voice-over spreekt
+const muziekVolume = (t: number) => {
+  let d = 0;
+  for (const v of VOICEOVER) {
+    const a = v.op - 0.25, b = v.op + v.duur + 0.15;
+    const p = t < a || t > b + 0.4 ? 0 : t < v.op ? (t - a) / 0.25 : t <= b ? 1 : 1 - (t - b) / 0.4;
+    d = Math.max(d, p);
+  }
+  return AUDIO.muziekVolume + (AUDIO.muziekOnderStem - AUDIO.muziekVolume) * d;
+};
 
 laadFonts();
 
@@ -67,7 +79,12 @@ export const Reel: React.FC = () => {
       <Vignet sterkte={0.6} />
       <Grain sterkte={0.07} />
 
-      <Audio src={staticFile(AUDIO.muziek)} volume={AUDIO.muziekVolume} />
+      <Audio src={staticFile(AUDIO.muziek)} volume={(f) => muziekVolume(f / fps)} />
+      {VOICEOVER.map((v, i) => (
+        <Sequence key={`vo${i}`} from={Math.round(v.op * fps)} durationInFrames={Math.ceil((v.duur + 0.2) * fps)}>
+          <Audio src={staticFile(v.bestand)} volume={AUDIO.stemVolume} />
+        </Sequence>
+      ))}
       {SFX.map(([s, naam, v], i) => (
         <Sequence key={i} from={Math.round(s * fps)} durationInFrames={Math.round(1.2 * fps)}>
           <Audio src={staticFile(`audio/sfx-${naam}.wav`)} volume={v * AUDIO.sfxVolume} />

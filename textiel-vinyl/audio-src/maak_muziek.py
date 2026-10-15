@@ -19,7 +19,7 @@ SR = 44100
 BPM = 120
 BEAT = 60 / BPM          # 0,5 s
 BAR = 4 * BEAT           # 2 s
-DUUR = 48.0              # seconden
+DUUR = 49.5              # seconden
 rng = np.random.default_rng(1970)
 
 
@@ -207,7 +207,7 @@ def arrangement():
             return "break"
         if t < 37:
             return "riser"
-        if t < 47:
+        if t < 48.5:
             return "climax"
         return "einde"
 
@@ -249,10 +249,10 @@ def arrangement():
             pass
 
     # strijkers boven de climax (Blanche & Cécile) en de finale
-    for m in range(int(37 // BAR), int(47 // BAR) + 1):
+    for m in range(int(37 // BAR), int(48.5 // BAR) + 1):
         t = max(37.0, m * BAR)
-        if t < 47:
-            place(harm, strings([n + 12 for n in AKKOORDEN[m % 4][1:4]], min(BAR, 47 - t) + 0.4), t, 0.45)
+        if t < 48.5:
+            place(harm, strings([n + 12 for n in AKKOORDEN[m % 4][1:4]], min(BAR, 48.5 - t) + 0.4), t, 0.45)
 
     # effecten
     place(fx, scratch(), 0.0, 1.0)
@@ -261,9 +261,9 @@ def arrangement():
     for tc in (4.0, 37.0):
         place(fx, crash(), tc, 1.0)
     # slotakkoord
-    place(harm, strings([57, 64, 69, 72, 76], 1.0), 47.0, 0.6)
-    place(drums, K, 47.0, 1.0)
-    place(fx, crash(), 47.0, 0.8)
+    place(harm, strings([57, 64, 69, 72, 76], 1.0), 48.5, 0.6)
+    place(drums, K, 48.5, 1.0)
+    place(fx, crash(), 48.5, 0.8)
 
     # zachte zijketen: bas en harmonie ademen mee met de kick
     pump = np.ones(n)

@@ -6,7 +6,7 @@
 export const FPS = 30;
 export const BREEDTE = 1080;
 export const HOOGTE = 1920;
-export const DUUR = 48; // seconden
+export const DUUR = 49.5; // seconden
 
 // Kleuren: overgenomen van events.loulou.store (src/styles.css) + art direction
 export const KLEUR = {
@@ -77,7 +77,7 @@ export const SCENE = {
   stap5: [25.3, 32],
   goedDoel: [32, 37],
   djs: [37, 42.6],
-  einde: [42.6, 48],
+  einde: [42.6, 49.5],
 } as const;
 
 export const TEKST = {
@@ -121,5 +121,7 @@ export const TEKST = {
 export const AUDIO = {
   muziek: "audio/muziek.wav",
   muziekVolume: 0.9,
+  muziekOnderStem: 0.32, // muziekvolume terwijl de voice-over spreekt
+  stemVolume: 1.0,
   sfxVolume: 0.55,
 };
