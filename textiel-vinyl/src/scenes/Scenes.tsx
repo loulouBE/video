@@ -94,7 +94,7 @@ export const StapTitels: React.FC<{ t: number }> = ({ t }) => {
         const p = tussen(t, van, van + 0.35) * (1 - tussen(t, tot, tot + 0.25));
         if (p <= 0) return null;
         return (
-          <div style={{ position: "absolute", top: 1330, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: p, transform: `translateY(${(1 - p) * 30}px) scale(${0.94 + p * 0.06})` }}>
+          <div style={{ position: "absolute", top: 1400, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: p, transform: `translateY(${(1 - p) * 30}px) scale(${0.94 + p * 0.06})` }}>
             <div style={{ maxWidth: 820, padding: "20px 34px", borderRadius: 8, background: "rgba(16,12,13,0.9)", border: `2px solid ${KLEUR.goud}`, boxShadow: "0 18px 50px rgba(0,0,0,0.6), 0 0 30px rgba(197,160,106,0.25)", fontFamily: FONT.sans, fontWeight: 500, fontSize: 40, lineHeight: 1.25, color: KLEUR.champagne, textAlign: "center" }}>
               {TEKST.stapUitleg[idx]}
             </div>
@@ -349,10 +349,10 @@ const Bar: React.FC<{ t: number }> = ({ t }) => (
 export const DJs: React.FC<{ t: number }> = ({ t }) => {
   const [a, b] = SCENE.djs;
   if (t < a - 0.1 || t > b + 0.3) return null;
-  const montage = 39.2;
+  const montage = TEKST.toonSfeer ? 39.2 : 9999;
   const fotoP = tussen(t, a, a + 0.6);
   const fotoUit = tussen(t, montage - 0.2, montage + 0.1);
-  const kb = tussen(t, a, montage, (x) => x);
+  const kb = tussen(t, a, Math.min(montage, b), (x) => x);
   return (
     <AbsoluteFill style={{ opacity: 1 - tussen(t, b - 0.05, b + 0.25) }}>
       <AbsoluteFill style={{ background: `radial-gradient(ellipse 90% 60% at 50% 35%, #6b2232 0%, ${KLEUR.bordeauxDiep} 45%, ${KLEUR.nacht} 100%)` }} />

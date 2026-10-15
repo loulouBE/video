@@ -50,11 +50,7 @@ const SFX: [number, string, number][] = [
   [31.9, "whoosh", 0.5],
   [34.0, "bevestig", 0.7],
   [37.0, "glitter", 0.9],
-  [39.2, "whoosh", 0.5],
-  [40.05, "whoosh", 0.35],
-  [40.9, "whoosh", 0.35],
-  [41.75, "whoosh", 0.35],
-  [42.6, "glitter", 0.8],
+  [42.4, "glitter", 0.8],
 ];
 
 export const Reel: React.FC = () => {

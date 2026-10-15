@@ -76,8 +76,8 @@ export const SCENE = {
   stap4: [20, 25.3],
   stap5: [25.3, 32],
   goedDoel: [32, 37],
-  djs: [37, 42.6],
-  einde: [42.6, 49.5],
+  djs: [37, 42.4],
+  einde: [42.4, 49.5],
 } as const;
 
 export const TEKST = {
@@ -107,6 +107,8 @@ export const TEKST = {
   djNamen: "BLANCHE & CÉCILE",
   djBekend: "BEKEND VAN DE MEMLING",
   djExclusief: "EXCLUSIEF ACHTER DE DRAAITAFELS!",
+  // sfeermontage na Blanche & Cécile (uitgeschakeld: foto blijft staan tot "10 jaar Lou Lou")
+  toonSfeer: false,
   sfeer: [
     { label: "DE DANSVLOER", beeld: "img/mirrorball.jpg", soort: "dansvloer" },
     { label: "DE BAR", beeld: "", soort: "bar" },

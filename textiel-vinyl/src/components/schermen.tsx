@@ -149,14 +149,14 @@ export const ScreenLogin: React.FC = () => (
 export const ScreenCollectie: React.FC<{ gloed?: number }> = ({ gloed = 0 }) => (
   <div style={{ position: "absolute", inset: 0, background: KLEUR.nacht }}>
     <Img src={staticFile("img/site-collectie-full.png")} style={{ width: 390, position: "absolute", top: 0, left: 0 }} />
-    {/* de echte plaat in de collectie (hoes op 20,151 – 183×207) */}
+    {/* de echte plaat in de collectie: kaart op x 20–184, y 355–620 (hoes + titel + prijs) */}
     <div
       style={{
         position: "absolute",
-        left: 16,
-        top: 448,
-        width: 172,
-        height: 340,
+        left: 12,
+        top: 347,
+        width: 180,
+        height: 281,
         borderRadius: 6,
         border: `2px solid rgba(233,201,135,${gloed})`,
         boxShadow: `0 0 ${40 * gloed}px rgba(233,201,135,${0.55 * gloed})`,

@@ -90,8 +90,8 @@ const CAMERA: [number, number, number, number][] = [
   [24.6, 1.55, 195, 175],
   [25.4, 1.0, 195, 422],
   [27.6, 1.0, 195, 422],
-  [28.2, 1.35, 120, 420], // de plaat in de collectie
-  [29.2, 1.35, 120, 420],
+  [28.2, 1.3, 102, 488], // de plaat in de collectie (midden van de kaart)
+  [29.2, 1.3, 102, 488],
 ];
 
 const camera = (t: number) => {
