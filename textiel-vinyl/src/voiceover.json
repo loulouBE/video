@@ -2,46 +2,51 @@
  {
   "bestand": "audio/vo-01.wav",
   "op": 0.0,
-  "duur": 4.25
+  "duur": 4.0
  },
  {
   "bestand": "audio/vo-02.wav",
-  "op": 4.25,
-  "duur": 3.94
+  "op": 4.0,
+  "duur": 4.0
  },
  {
   "bestand": "audio/vo-03.wav",
-  "op": 8.19,
-  "duur": 5.64
+  "op": 8.0,
+  "duur": 5.95
  },
  {
   "bestand": "audio/vo-04.wav",
   "op": 14.0,
-  "duur": 5.96
+  "duur": 5.95
  },
  {
   "bestand": "audio/vo-05.wav",
   "op": 20.0,
-  "duur": 4.79
+  "duur": 4.67
  },
  {
   "bestand": "audio/vo-06.wav",
   "op": 25.3,
-  "duur": 3.84
+  "duur": 5.31
  },
  {
   "bestand": "audio/vo-07.wav",
-  "op": 31.9,
-  "duur": 5.0
+  "op": 31.6,
+  "duur": 4.75
  },
  {
   "bestand": "audio/vo-08.wav",
-  "op": 36.95,
-  "duur": 5.39
+  "op": 36.5,
+  "duur": 5.35
  },
  {
   "bestand": "audio/vo-09.wav",
-  "op": 42.4,
-  "duur": 6.84
+  "op": 41.9,
+  "duur": 1.92
+ },
+ {
+  "bestand": "audio/vo-10.wav",
+  "op": 43.85,
+  "duur": 6.55
  }
 ]

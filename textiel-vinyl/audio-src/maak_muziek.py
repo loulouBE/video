@@ -19,9 +19,9 @@ SR = 44100
 BPM = 120
 BEAT = 60 / BPM          # 0,5 s
 BAR = 4 * BEAT           # 2 s
-DUUR = 49.5              # seconden
+DUUR = 50.6              # seconden
 # sectiegrenzen (s): scratch, intro, groove, break, riser en climax lopen tot deze tijden
-SECTIES = dict(scratch=0.6, intro=4, groove=32, brk=36, riser=37, climax=48.5)
+SECTIES = dict(scratch=0.6, intro=4, groove=32, brk=36, riser=37, climax=49.6)
 rng = np.random.default_rng(1970)
 
 

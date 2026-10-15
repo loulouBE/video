@@ -51,7 +51,7 @@ const SFX: [number, string, number][] = [
   [31.9, "whoosh", 0.5],
   [34.0, "bevestig", 0.7],
   [37.0, "glitter", 0.9],
-  [42.4, "glitter", 0.8],
+  [43.7, "glitter", 0.8],
 ];
 
 export const Reel: React.FC = () => {
@@ -72,7 +72,7 @@ export const Reel: React.FC = () => {
       <DJs t={t} />
       <Einde t={t} />
       <Lichtlek t={t} start={31.8} duur={0.9} x={60} />
-      <Lichtlek t={t} start={42.3} duur={0.9} x={40} kleur="255,170,140" />
+      <Lichtlek t={t} start={43.6} duur={0.9} x={40} kleur="255,170,140" />
       <Vignet sterkte={0.6} />
       <Grain sterkte={0.07} />
 

@@ -6,7 +6,7 @@
 export const FPS = 30;
 export const BREEDTE = 1080;
 export const HOOGTE = 1920;
-export const DUUR = 49.5; // seconden
+export const DUUR = 50.6; // seconden
 
 // Kleuren: overgenomen van events.loulou.store (src/styles.css) + art direction
 export const KLEUR = {
@@ -89,8 +89,8 @@ export const SCENE = {
   stap4: [20, 25.3],
   stap5: [25.3, 32],
   goedDoel: [32, 37],
-  djs: [37, 42.4],
-  einde: [42.4, 49.5],
+  djs: [37, 43.7],
+  einde: [43.7, 50.6],
 } as const;
 
 export const TEKST = {
