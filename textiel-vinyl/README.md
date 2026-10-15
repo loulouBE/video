@@ -1,6 +1,6 @@
 # TEXTIEL & VINYL – 10 JAAR LOU LOU · TikTok/Reels-video
 
-Verticale promovideo (1080 × 1920, 30 fps, H.264, 47 s), gebouwd met **Remotion (React/TypeScript)**.
+Verticale promovideo (1080 × 1920, 30 fps, H.264, 48 s), gebouwd met **Remotion (React/TypeScript)**.
 De gerenderde video: `out/textiel-vinyl-reel.mp4` (kopie in `../exports/textiel-vinyl-reel.mp4`).
 
 ## Snel starten
@@ -29,10 +29,12 @@ Controlebeelden op bepaalde seconden: `node stills.mjs 2.5 12 40` → `out/still
 | Opbouw van de scènes | `src/scenes/Scenes.tsx` (opening, titels, platenbak, goed doel, DJ's, einde) |
 | Nagebouwde schermen van de website | `src/components/schermen.tsx` |
 | **Beelden** | `public/img/` (zelfde bestandsnaam = automatisch vervangen) |
-| **Muziek** | vervang `public/audio/muziek.wav` (± 47 s) of pas `audio-src/maak_muziek.py` aan en draai `python3 audio-src/maak_muziek.py public/audio` |
+| **Muziek** | vervang `public/audio/muziek.wav` (± 48 s) of pas `audio-src/maak_muziek.py` aan en draai `python3 audio-src/maak_muziek.py public/audio` |
 | Geluidseffecten en hun momenten | `public/audio/sfx-*.wav`, lijst `SFX` in `src/Reel.tsx` |
 | Barcodes | `node audio-src/maak_barcodes.cjs <EAN> <TV-nummer>` |
 | Schermafbeeldingen van de site vernieuwen | `PW=$(npm root -g)/playwright node site-capture.cjs <map>` en kopieer naar `public/img/site-*.png` |
+
+Elke stap heeft ook een groot uitlegkader (`TEKST.stapUitleg`), zodat de video zonder geluid begrijpelijk is.
 
 Verandert de duur, pas dan ook `DUUR` in `src/config.ts` en in `audio-src/maak_muziek.py` aan.
 
@@ -44,11 +46,11 @@ Verandert de duur, pas dan ook `DUUR` in `src/config.ts` en in `audio-src/maak_m
 | 4–8 s | **1. Registreer je vinyl online**: telefoon met de echte homepage, zoom op "Registreer je vinyl", tik, loginpagina |
 | 8–14 s | **2. Scan de barcode**: "+ Plaat toevoegen" → "Scan barcode" → camerabeeld met scanvenster en scanlijn → "Barcode gelezen" → "Plaat opzoeken…" → "Kies de juiste editie" |
 | 14–20 s | **3. Ontdek de waarde**: velden vullen zich automatisch (artiest, album, jaar, label, barcode), "Waarde opzoeken" → "Richtprijs (Discogs)" |
-| 20–26 s | **4. Jij bepaalt de prijs!**: tik in "Vraagprijs (€)", typ 10, "Enkel een indicatie; jij kiest de prijs.", voorwaarden aanvinken, "Plaat registreren" → "Plaat geregistreerd" |
-| 26–32 s | **5. Wij verkopen jouw platen!**: status "Aangemeld" → "Goedgekeurd", de plaat in "The Vinyl Collection", daarna de platenbak met prijsticketje |
+| 20–25,3 s | **4. Jij bepaalt de prijs!**: tik in "Vraagprijs (€)", typ 10, "Enkel een indicatie; jij kiest de prijs.", voorwaarden aanvinken, "Plaat registreren" → "Plaat geregistreerd" |
+| 25,3–32 s | **5. Wij verkopen jouw platen!**: status "Aangemeld" → "Goedgekeurd", de plaat in "The Vinyl Collection", daarna de platenbak met prijsticketje |
 | 32–37 s | "EN JE STEUNT EEN GOED DOEL!": 90 % voor jou / 10 % voor het goede doel |
-| 37–42 s | Blanche & Cécile (originele foto), "BEKEND VAN DE MEMLING", "EXCLUSIEF ACHTER DE DRAAITAFELS!" + dansvloer, bar, kerst- & nieuwjaarscollectie, cadeaus |
-| 42–47 s | Logo, 10 jaar Lou Lou, datum, uur, Lou Lou Ronse, "SCAN. REGISTREER. VERKOOP.", "REGISTREER NU JOUW VINYL!", events.loulou.store |
+| 37–42,6 s | Blanche & Cécile (originele foto), "BEKEND VAN DE MEMLING", "EXCLUSIEF ACHTER DE DRAAITAFELS!" + dansvloer, bar, kerst- & nieuwjaarscollectie, cadeaus |
+| 42,6–48 s | Logo, 10 jaar Lou Lou, datum, uur, Lou Lou Ronse, "SCAN. REGISTREER. VERKOOP.", "REGISTREER NU JOUW VINYL!", events.loulou.store |
 
 ## Echt, nagebouwd of concept? (belangrijk)
 

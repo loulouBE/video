@@ -7,7 +7,7 @@ import { rnd } from "../util";
 export const Grain: React.FC<{ sterkte?: number }> = ({ sterkte = 0.09 }) => {
   const f = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ pointerEvents: "none", mixBlendMode: "overlay", opacity: sterkte }}>
+    <AbsoluteFill style={{ pointerEvents: "none", mixBlendMode: "screen", opacity: sterkte }}>
       <svg width="100%" height="100%">
         <filter id="grain">
           <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed={f % 12} stitchTiles="stitch" />

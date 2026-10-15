@@ -86,7 +86,7 @@ export const Toast: React.FC<{ tekst: string; p: number; succes?: boolean }> = (
       position: "absolute",
       left: 18,
       right: 18,
-      bottom: 34,
+      top: 96,
       padding: "14px 16px",
       borderRadius: 8,
       background: "#1d1517",
@@ -95,7 +95,7 @@ export const Toast: React.FC<{ tekst: string; p: number; succes?: boolean }> = (
       alignItems: "center",
       gap: 12,
       opacity: p,
-      transform: `translateY(${(1 - p) * 40}px)`,
+      transform: `translateY(${-(1 - p) * 40}px)`,
       boxShadow: "0 12px 30px rgba(0,0,0,0.5)",
       zIndex: 20,
     }}

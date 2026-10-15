@@ -38,8 +38,11 @@ const SFX: [number, string, number][] = [
   [31.9, "whoosh", 0.5],
   [34.0, "bevestig", 0.7],
   [37.0, "glitter", 0.9],
-  [39.55, "whoosh", 0.5],
-  [42.0, "glitter", 0.8],
+  [39.2, "whoosh", 0.5],
+  [40.05, "whoosh", 0.35],
+  [40.9, "whoosh", 0.35],
+  [41.75, "whoosh", 0.35],
+  [42.6, "glitter", 0.8],
 ];
 
 export const Reel: React.FC = () => {
@@ -49,7 +52,8 @@ export const Reel: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: KLEUR.nacht }}>
       <Achtergrond />
-      <Glitter aantal={26} seed={3} sterkte={0.55} />
+      <Glitter aantal={14} seed={3} sterkte={0.55} zone={[20, 140]} />
+      <Glitter aantal={14} seed={4} sterkte={0.55} zone={[1600, 1900]} />
       <TelefoonGloed t={t} />
       <Opening t={t} />
       <TelefoonFlow t={t} />
@@ -59,9 +63,9 @@ export const Reel: React.FC = () => {
       <DJs t={t} />
       <Einde t={t} />
       <Lichtlek t={t} start={31.8} duur={0.9} x={60} />
-      <Lichtlek t={t} start={41.8} duur={0.9} x={40} kleur="255,170,140" />
+      <Lichtlek t={t} start={42.3} duur={0.9} x={40} kleur="255,170,140" />
       <Vignet sterkte={0.6} />
-      <Grain sterkte={0.1} />
+      <Grain sterkte={0.07} />
 
       <Audio src={staticFile(AUDIO.muziek)} volume={AUDIO.muziekVolume} />
       {SFX.map(([s, naam, v], i) => (

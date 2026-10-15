@@ -6,7 +6,7 @@
 export const FPS = 30;
 export const BREEDTE = 1080;
 export const HOOGTE = 1920;
-export const DUUR = 47; // seconden
+export const DUUR = 48; // seconden
 
 // Kleuren: overgenomen van events.loulou.store (src/styles.css) + art direction
 export const KLEUR = {
@@ -73,11 +73,11 @@ export const SCENE = {
   stap1: [4, 8],
   stap2: [8, 14],
   stap3: [14, 20],
-  stap4: [20, 26],
-  stap5: [26, 32],
+  stap4: [20, 25.3],
+  stap5: [25.3, 32],
   goedDoel: [32, 37],
-  djs: [37, 42],
-  einde: [42, 47],
+  djs: [37, 42.6],
+  einde: [42.6, 48],
 } as const;
 
 export const TEKST = {
@@ -90,8 +90,14 @@ export const TEKST = {
     { nr: 4, titel: "JIJ BEPAALT DE PRIJS!" },
     { nr: 5, titel: "WIJ VERKOPEN JOUW PLATEN!" },
   ],
-  stap3Sub: "Plaat herkend · richtprijs live via Discogs",
-  stap4Sub: "Enkel een indicatie; jij kiest de prijs.",
+  // groot uitlegkader per stap (begrijpelijk zonder geluid)
+  stapUitleg: [
+    "op events.loulou.store",
+    "Richt je camera op de streepjescode",
+    "Automatisch herkend!",
+    "Richtprijs = enkel een indicatie. Jij kiest!",
+    "Na goedkeuring online te koop",
+  ],
   stap5Sub: "Breng je platen naar Lou Lou: wij kleven er een prijsticketje op.",
   goedDoelTitel: "EN JE STEUNT EEN GOED DOEL!",
   deelJij: "90%",

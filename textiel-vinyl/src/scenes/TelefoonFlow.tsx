@@ -64,7 +64,7 @@ const VOLGORDE: [number, Scherm][] = [
   [11.55, "zoeken"],
   [12.75, "editie"],
   [13.9, "formulier"],
-  [24.75, "mijnplaten"],
+  [25.3, "mijnplaten"],
   [27.3, "collectie"],
 ];
 
@@ -77,8 +77,8 @@ const CAMERA: [number, number, number, number][] = [
   [7.6, 1.0, 195, 422],
   [9.4, 1.0, 195, 422],
   [10.2, 1.45, 235, 470], // in op scanvenster
-  [11.4, 1.45, 235, 470],
-  [11.9, 1.0, 195, 422],
+  [10.95, 1.45, 235, 470],
+  [11.35, 1.0, 195, 422],
   [14.0, 1.0, 195, 422],
   [14.6, 1.3, 195, 330], // gegevens die ingevuld worden
   [16.6, 1.3, 195, 330],
@@ -86,9 +86,9 @@ const CAMERA: [number, number, number, number][] = [
   [19.6, 1.4, 195, 300],
   [20.2, 1.55, 195, 250], // vraagprijs
   [21.9, 1.55, 195, 250],
-  [22.4, 1.25, 195, 300],
-  [24.4, 1.25, 195, 300],
-  [24.9, 1.0, 195, 422],
+  [22.5, 1.55, 195, 175], // vinkje + knop
+  [24.6, 1.55, 195, 175],
+  [25.4, 1.0, 195, 422],
   [27.6, 1.0, 195, 422],
   [28.2, 1.35, 120, 420], // de plaat in de collectie
   [29.2, 1.35, 120, 420],
@@ -223,8 +223,8 @@ export const TelefoonFlow: React.FC<{ t: number }> = ({ t }) => {
           {t > MOMENTEN.barcodeGelezen && t < 12.4 && (
             <Toast tekst={`Barcode gelezen: ${PLAAT.barcode}`} p={tussen(t, MOMENTEN.barcodeGelezen, MOMENTEN.barcodeGelezen + 0.3) * (1 - tussen(t, 12.0, 12.4))} />
           )}
-          {t > MOMENTEN.geregistreerd && t < 25.6 && (
-            <Toast tekst="Plaat geregistreerd" p={tussen(t, MOMENTEN.geregistreerd, MOMENTEN.geregistreerd + 0.3) * (1 - tussen(t, 25.2, 25.6))} />
+          {t > MOMENTEN.geregistreerd && t < 25.5 && (
+            <Toast tekst="Plaat geregistreerd" p={tussen(t, MOMENTEN.geregistreerd, MOMENTEN.geregistreerd + 0.3) * (1 - tussen(t, 25.1, 25.5))} />
           )}
           {/* vinger (in schermcoördinaten) */}
           <div style={{ position: "absolute", inset: 0 }}>

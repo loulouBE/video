@@ -87,6 +87,20 @@ export const StapTitels: React.FC<{ t: number }> = ({ t }) => {
       <div style={{ position: "absolute", top: 250, left: 90, right: 90 }} key={stap.nr}>
         <KineTitel tekst={`${stap.nr}. ${stap.titel}`} t={t} start={a + 0.08} grootte={78} uit={b - 0.3} stagger={0.016} />
       </div>
+      {/* groot uitlegkader onder de telefoonbovenkant (binnen de safe zone) */}
+      {(() => {
+        const van = a + 0.9;
+        const tot = idx === 4 ? 29.2 : b - 0.25;
+        const p = tussen(t, van, van + 0.35) * (1 - tussen(t, tot, tot + 0.25));
+        if (p <= 0) return null;
+        return (
+          <div style={{ position: "absolute", top: 1330, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: p, transform: `translateY(${(1 - p) * 30}px) scale(${0.94 + p * 0.06})` }}>
+            <div style={{ maxWidth: 820, padding: "20px 34px", borderRadius: 8, background: "rgba(16,12,13,0.9)", border: `2px solid ${KLEUR.goud}`, boxShadow: "0 18px 50px rgba(0,0,0,0.6), 0 0 30px rgba(197,160,106,0.25)", fontFamily: FONT.sans, fontWeight: 500, fontSize: 40, lineHeight: 1.25, color: KLEUR.champagne, textAlign: "center" }}>
+              {TEKST.stapUitleg[idx]}
+            </div>
+          </div>
+        );
+      })()}
     </AbsoluteFill>
   );
 };
@@ -128,7 +142,7 @@ const Ticketje: React.FC<{ breedte: number }> = ({ breedte }) => {
   );
 };
 
-const HOEZEN = ["#6b2232", "#c48a3a", "#2c3b4f", "#8d5a3b", "#d8c7a3", "#3f2a4a", "#a33d2e", "#556b4f"];
+const HOEZEN = ["#6b2232", "#c48a3a", "#3a1a22", "#8d5a3b", "#d8c7a3", "#4a2a1f", "#a33d2e", "#54202F"];
 
 export const Platenbak: React.FC<{ t: number }> = ({ t }) => {
   const [a, b] = [29.3, SCENE.stap5[1]];
@@ -182,8 +196,9 @@ export const Platenbak: React.FC<{ t: number }> = ({ t }) => {
             top: 380,
             height: 330,
             borderRadius: 10,
-            background: "linear-gradient(180deg, #8a5a36 0%, #5e3a22 60%, #3d2414 100%)",
-            boxShadow: "inset 0 6px 0 rgba(255,220,170,0.25), 0 30px 60px rgba(0,0,0,0.6)",
+            background: "linear-gradient(180deg, #4A2A1F 0%, #2A1712 60%, #1a0e0b 100%)",
+            border: "3px solid #C5A06A",
+            boxShadow: "inset 0 6px 0 rgba(233,201,135,0.25), 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(197,160,106,0.2)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -247,11 +262,13 @@ export const GoedDoel: React.FC<{ t: number }> = ({ t }) => {
           <circle r={112} fill={KLEUR.bordeauxDiep} stroke="#C5A06A" strokeWidth="2" />
         </svg>
         <div style={{ position: "absolute", left: 380 - 110, top: 380 - 60, width: 220, textAlign: "center" }}>
-          <div style={{ fontFamily: FONT.display, fontWeight: 600, fontSize: 88, lineHeight: 1, ...goudTekst }}>{Math.round(90 * boog)}%</div>
-          <div style={{ fontFamily: FONT.sans, fontWeight: 500, fontSize: 22, letterSpacing: "0.3em", color: KLEUR.champagne }}>VOOR JOU</div>
+          <div style={{ opacity: tussen(t, a + 1.85, a + 2.2) }}>
+            <div style={{ fontFamily: FONT.display, fontWeight: 600, fontSize: 88, lineHeight: 1, ...goudTekst }}>90%</div>
+            <div style={{ fontFamily: FONT.sans, fontWeight: 500, fontSize: 22, letterSpacing: "0.3em", color: KLEUR.champagne }}>VOOR JOU</div>
+          </div>
         </div>
       </div>
-      <div style={{ position: "absolute", top: 1360, left: 100, right: 100, display: "flex", justifyContent: "space-between", gap: 40 }}>
+      <div style={{ position: "absolute", top: 1340, left: 110, right: 160, display: "flex", justifyContent: "space-between", gap: 40 }}>
         <div style={{ opacity: tussen(t, a + 1.4, a + 1.8), transform: `translateY(${(1 - tussen(t, a + 1.4, a + 1.8)) * 30}px)` }}>
           <div style={{ fontFamily: FONT.display, fontWeight: 700, fontSize: 108, lineHeight: 1, ...goudTekst }}>{TEKST.deelJij}</div>
           <div style={{ fontFamily: FONT.sans, fontWeight: 500, fontSize: 30, letterSpacing: "0.28em", color: KLEUR.champagne, marginTop: 6 }}>{TEKST.deelJijTekst}</div>
@@ -332,7 +349,7 @@ const Bar: React.FC<{ t: number }> = ({ t }) => (
 export const DJs: React.FC<{ t: number }> = ({ t }) => {
   const [a, b] = SCENE.djs;
   if (t < a - 0.1 || t > b + 0.3) return null;
-  const montage = 39.55;
+  const montage = 39.2;
   const fotoP = tussen(t, a, a + 0.6);
   const fotoUit = tussen(t, montage - 0.2, montage + 0.1);
   const kb = tussen(t, a, montage, (x) => x);
@@ -367,7 +384,7 @@ export const DJs: React.FC<{ t: number }> = ({ t }) => {
         <div style={{ position: "absolute", top: 975, left: 20, right: 20 }}>
           <KineTitel tekst={TEKST.djNamen} t={t} start={a + 0.35} grootte={96} stagger={0.02} spatiering="0.02em" />
         </div>
-        <div style={{ position: "absolute", top: 1105, left: 0, right: 0, textAlign: "center", opacity: tussen(t, a + 0.9, a + 1.2) }}>
+        <div style={{ position: "absolute", top: 1105, left: 0, right: 0, textAlign: "center", opacity: tussen(t, a + 0.7, a + 1.0) }}>
           <Eyebrow style={{ fontSize: 34, color: KLEUR.champagne }}>{TEKST.djBekend}</Eyebrow>
         </div>
         <div
@@ -382,8 +399,8 @@ export const DJs: React.FC<{ t: number }> = ({ t }) => {
             fontWeight: 500,
             fontSize: 66,
             color: KLEUR.goudLicht,
-            opacity: tussen(t, a + 1.3, a + 1.65),
-            transform: `translateY(${(1 - tussen(t, a + 1.3, a + 1.65)) * 30}px)`,
+            opacity: tussen(t, a + 1.0, a + 1.35),
+            transform: `translateY(${(1 - tussen(t, a + 1.0, a + 1.35)) * 30}px)`,
           }}
         >
           {TEKST.djExclusief}
@@ -391,8 +408,8 @@ export const DJs: React.FC<{ t: number }> = ({ t }) => {
       </AbsoluteFill>
       {/* deel 2: sfeermontage */}
       {TEKST.sfeer.map((s, i) => {
-        const st = montage + i * 0.62;
-        const en = st + 0.62 + (i === TEKST.sfeer.length - 1 ? 0.3 : 0.08);
+        const st = montage + i * 0.85;
+        const en = st + 0.85 + (i === TEKST.sfeer.length - 1 ? 0.3 : 0.08);
         if (t < st || t > en) return null;
         const p = tussen(t, st, st + 0.22);
         const lt = t - st;
@@ -414,7 +431,8 @@ export const DJs: React.FC<{ t: number }> = ({ t }) => {
           </AbsoluteFill>
         );
       })}
-      <Glitter aantal={60} seed={8} sterkte={1} />
+      <Glitter aantal={22} seed={8} sterkte={1} zone={[20, 230]} />
+      <Glitter aantal={18} seed={9} sterkte={0.9} zone={[1560, 1900]} />
       <Flits t={t} op={a} duur={0.45} />
       <Lichtlek t={t} start={a + 0.1} duur={1.2} x={30} />
     </AbsoluteFill>
@@ -439,22 +457,22 @@ export const Einde: React.FC<{ t: number }> = ({ t }) => {
         </div>
       </AbsoluteFill>
       <Discolicht sterkte={0.3} />
-      <div style={{ position: "absolute", top: 210, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+      <div style={{ position: "absolute", top: 300, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
         <div style={{ transform: `scale(${lerp(0.85, 1, tussen(t, a, a + 0.7))})`, filter: "drop-shadow(0 0 30px rgba(233,201,135,0.35))" }}>
           <Logo breedte={560} />
         </div>
       </div>
-      <div style={{ position: "absolute", top: 640, left: 60, right: 60 }}>
-        <div style={{ ...regel(a + 0.35), textAlign: "center", fontFamily: FONT.louLou, fontWeight: 600, fontSize: 62, letterSpacing: "0.08em", color: KLEUR.champagne }}>{EVENT.jubileum}</div>
+      <div style={{ position: "absolute", top: 735, left: 60, right: 60 }}>
+        <div style={{ ...regel(a + 0.25), textAlign: "center", fontFamily: FONT.louLou, fontWeight: 600, fontSize: 62, letterSpacing: "0.08em", color: KLEUR.champagne }}>{EVENT.jubileum}</div>
         <div style={{ height: 2, width: 420, margin: "22px auto", background: "linear-gradient(90deg, transparent, #C5A06A, transparent)", opacity: tussen(t, a + 0.5, a + 0.8) }} />
-        <div style={{ ...info, ...regel(a + 0.55) }}>{EVENT.datum}</div>
-        <div style={{ ...info, ...regel(a + 0.7), marginTop: 10 }}>{EVENT.uur}</div>
-        <div style={{ ...info, ...regel(a + 0.85), marginTop: 10 }}>{EVENT.plaats}</div>
-        <div style={{ ...info, ...regel(a + 0.95), fontSize: 28, fontWeight: 300, letterSpacing: "0.1em", marginTop: 4, color: "rgba(241,228,210,0.75)" }}>{EVENT.adres}</div>
+        <div style={{ ...info, ...regel(a + 0.4) }}>{EVENT.datum}</div>
+        <div style={{ ...info, ...regel(a + 0.5), marginTop: 10 }}>{EVENT.uur}</div>
+        <div style={{ ...info, ...regel(a + 0.6), marginTop: 10 }}>{EVENT.plaats}</div>
+        <div style={{ ...info, ...regel(a + 0.7), fontSize: 28, fontWeight: 300, letterSpacing: "0.1em", marginTop: 4, color: "rgba(241,228,210,0.75)" }}>{EVENT.adres}</div>
       </div>
-      <div style={{ position: "absolute", top: 1090, left: 90, right: 90, display: "flex", justifyContent: "center", gap: 18 }}>
+      <div style={{ position: "absolute", top: 1180, left: 90, right: 90, display: "flex", justifyContent: "center", gap: 18 }}>
         {TEKST.slogan.map((w, i) => {
-          const p = tussen(t, a + 1.25 + i * 0.32, a + 1.55 + i * 0.32);
+          const p = tussen(t, a + 0.9 + i * 0.25, a + 1.2 + i * 0.25);
           return (
             <div key={w} style={{ fontFamily: FONT.display, fontWeight: 700, fontSize: 60, opacity: p, transform: `scale(${lerp(1.4, 1, p)})`, ...goudTekst }}>
               {w}
@@ -462,7 +480,7 @@ export const Einde: React.FC<{ t: number }> = ({ t }) => {
           );
         })}
       </div>
-      <div style={{ position: "absolute", top: 1215, left: 130, right: 130, ...regel(a + 2.35) }}>
+      <div style={{ position: "absolute", top: 1300, left: 130, right: 130, ...regel(a + 1.75) }}>
         <div
           style={{
             height: 104,
@@ -481,11 +499,12 @@ export const Einde: React.FC<{ t: number }> = ({ t }) => {
         >
           {TEKST.oproep}
         </div>
-        <div style={{ marginTop: 26, textAlign: "center", fontFamily: FONT.sans, fontWeight: 500, fontSize: 52, letterSpacing: "0.04em", color: KLEUR.champagne }}>
+        <div style={{ marginTop: 24, textAlign: "center", fontFamily: FONT.sans, fontWeight: 500, fontSize: 66, letterSpacing: "0.02em", color: KLEUR.goudLicht }}>
           {SITE.url}
         </div>
       </div>
-      <Glitter aantal={45} seed={21} sterkte={0.9} zone={[0, 1500]} />
+      <Glitter aantal={22} seed={21} sterkte={0.9} zone={[20, 300]} />
+      <Glitter aantal={16} seed={22} sterkte={0.8} zone={[1600, 1900]} />
       <Flits t={t} op={a} duur={0.3} />
     </AbsoluteFill>
   );
