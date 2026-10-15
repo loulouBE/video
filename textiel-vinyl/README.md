@@ -3,6 +3,22 @@
 Verticale promovideo (1080 × 1920, 30 fps, H.264, 48 s), gebouwd met **Remotion (React/TypeScript)**.
 De gerenderde video: `out/textiel-vinyl-reel.mp4` (kopie in `../exports/textiel-vinyl-reel.mp4`).
 
+## Twee versies
+
+| Versie | Compositie | Bestand | Doel |
+|---|---|---|---|
+| Registratie (22 s) | `TextielVinylRegistratie` (`src/KortReel.tsx`) | `exports/textiel-vinyl-registratie.mp4` | zo veel mogelijk registraties: hook, 3 stappen, 90/10, URL vast in beeld |
+| Event (49,6 s) | `TextielVinylReel` (`src/Reel.tsx`) | `exports/textiel-vinyl-reel.mp4` | uitnodiging voor het feest + volledige uitleg |
+
+Renderen: `npx remotion render TextielVinylRegistratie out/registratie.mp4` (of `TextielVinylReel`).
+
+## Voice-over
+
+ElevenLabs-stem "Jeroen Vlaams" (bronbestanden `public/audio/voiceover-bron.mp3` en `voiceover-kort-bron.mp3`).
+De opname is per zin geknipt en op de juiste scène gelegd: zie `src/voiceover.json` en `src/voiceover-kort.json`
+(`op` = starttijd in seconden). De muziek zakt automatisch onder de stem (`AUDIO.muziekOnderStem`).
+Nieuwe opname? Vervang de bron, knip opnieuw op de stiltes (zie de tijden in de json) en pas `op` aan.
+
 ## Snel starten
 
 ```bash
@@ -78,7 +94,7 @@ Verandert de duur, pas dan ook `DUUR` in `src/config.ts` en in `audio-src/maak_m
 
 - **Soundtrack:** volledig synthetisch gemaakt in `audio-src/maak_muziek.py` (120 BPM disco/funk: four-on-the-floor, claps, open hats, octaafbas, akkoordstabs, strijkers, vinyl-scratch bij de opening, riser + climax bij Blanche & Cécile). Geen samples of bestaande muziek, dus geen rechtenkwestie.
 - **Geluidseffecten** (tik, piep, bevestiging, whoosh, sluiter, glitter): ook synthetisch, zelfde script.
-- **Voice-over:** niet opgenomen. Er was geen Vlaamse TTS-stem van voldoende kwaliteit beschikbaar zonder externe dienst. De video is volledig begrijpelijk zonder geluid: alle instructies staan in beeld. Een voice-over toevoegen: zet `public/audio/voiceover.wav` neer en voeg in `src/Reel.tsx` een `<Audio src={staticFile("audio/voiceover.wav")} />` toe (en zet `AUDIO.muziekVolume` lager, bv. 0.45).
+- **Voice-over:** aangeleverd via ElevenLabs (zie hierboven). In de lange versie is "Dansen, klinken, shoppen" weggelaten omdat de slotzin anders over het eindbeeld liep; de beelden tonen het wel.
 - Wil je liever een bestaande disco-track: gebruik enkel muziek met licentie voor sociale media (bv. de TikTok/Instagram-muziekbibliotheek bij het posten).
 
 ## Veilige zones
