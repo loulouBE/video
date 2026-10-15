@@ -219,7 +219,7 @@ export const Platenbak: React.FC<{ t: number }> = ({ t }) => {
 // ============================================================================
 // SCÈNE 7 · 32–37 s · goed doel: 90 % / 10 %
 // ============================================================================
-export const GoedDoel: React.FC<{ t: number }> = ({ t }) => {
+export const GoedDoel: React.FC<{ t: number; titelTop?: number }> = ({ t, titelTop = 210 }) => {
   const [a, b] = SCENE.goedDoel;
   if (t < a - 0.2 || t > b + 0.3) return null;
   const zicht = venster(t, a, b + 0.2, 0.4, 0.4);
@@ -237,7 +237,7 @@ export const GoedDoel: React.FC<{ t: number }> = ({ t }) => {
   const mid = (342 * Math.PI) / 180;
   return (
     <AbsoluteFill style={{ opacity: zicht }}>
-      <div style={{ position: "absolute", top: 210, left: 80, right: 80 }}>
+      <div style={{ position: "absolute", top: titelTop, left: 80, right: 80 }}>
         <KineTitel tekst={TEKST.goedDoelTitel} t={t} start={a + 0.1} grootte={92} stagger={0.016} />
       </div>
       <div style={{ position: "absolute", left: 540 - 380, top: 560, width: 760, height: 760 }}>

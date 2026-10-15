@@ -20,6 +20,8 @@ BPM = 120
 BEAT = 60 / BPM          # 0,5 s
 BAR = 4 * BEAT           # 2 s
 DUUR = 49.5              # seconden
+# sectiegrenzen (s): scratch, intro, groove, break, riser en climax lopen tot deze tijden
+SECTIES = dict(scratch=0.6, intro=4, groove=32, brk=36, riser=37, climax=48.5)
 rng = np.random.default_rng(1970)
 
 
@@ -196,18 +198,20 @@ def arrangement():
     drums, bas, harm, fx = (np.zeros(n) for _ in range(4))
     K, CL, HC, HO, SH = kick(), clap(), hat(), hat(True), shaker()
 
+    S = SECTIES
+
     def sectie(t):
-        if t < 0.6:
+        if t < S["scratch"]:
             return "scratch"
-        if t < 4:
+        if t < S["intro"]:
             return "intro"
-        if t < 32:
+        if t < S["groove"]:
             return "groove"
-        if t < 36:
+        if t < S["brk"]:
             return "break"
-        if t < 37:
+        if t < S["riser"]:
             return "riser"
-        if t < 48.5:
+        if t < S["climax"]:
             return "climax"
         return "einde"
 
@@ -249,21 +253,21 @@ def arrangement():
             pass
 
     # strijkers boven de climax (Blanche & Cécile) en de finale
-    for m in range(int(37 // BAR), int(48.5 // BAR) + 1):
-        t = max(37.0, m * BAR)
-        if t < 48.5:
-            place(harm, strings([n + 12 for n in AKKOORDEN[m % 4][1:4]], min(BAR, 48.5 - t) + 0.4), t, 0.45)
+    for m in range(int(S["riser"] // BAR), int(S["climax"] // BAR) + 1):
+        t = max(S["riser"], m * BAR)
+        if t < S["climax"]:
+            place(harm, strings([n + 12 for n in AKKOORDEN[m % 4][1:4]], min(BAR, S["climax"] - t) + 0.4), t, 0.45)
 
     # effecten
     place(fx, scratch(), 0.0, 1.0)
     place(fx, crackle(4.5), 0.0, 1.0)
-    place(fx, riser(3.0), 34.0, 1.0)
-    for tc in (4.0, 37.0):
+    place(fx, riser(3.0), S["riser"] - 3.0, 1.0)
+    for tc in (S["intro"], S["riser"]):
         place(fx, crash(), tc, 1.0)
     # slotakkoord
-    place(harm, strings([57, 64, 69, 72, 76], 1.0), 48.5, 0.6)
-    place(drums, K, 48.5, 1.0)
-    place(fx, crash(), 48.5, 0.8)
+    place(harm, strings([57, 64, 69, 72, 76], 1.0), S["climax"], 0.6)
+    place(drums, K, S["climax"], 1.0)
+    place(fx, crash(), S["climax"], 0.8)
 
     # zachte zijketen: bas en harmonie ademen mee met de kick
     pump = np.ones(n)
@@ -321,6 +325,10 @@ if __name__ == "__main__":
     uit = Path(sys.argv[1] if len(sys.argv) > 1 else "public/audio")
     uit.mkdir(parents=True, exist_ok=True)
     schrijf(uit / "muziek.wav", arrangement())
+    # korte registratie-versie (22 s): groove vanaf de hook, break bij 90/10, climax bij de oproep
+    DUUR = 22.0
+    SECTIES.update(scratch=0.35, intro=2.2, groove=14.0, brk=16.2, riser=17.0, climax=21.2)
+    schrijf(uit / "muziek-kort.wav", arrangement())
     for naam, x in sfx().items():
         schrijf(uit / f"sfx-{naam}.wav", x)
     print("klaar:", sorted(p.name for p in uit.iterdir()))
