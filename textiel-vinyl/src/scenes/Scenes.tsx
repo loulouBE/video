@@ -177,9 +177,11 @@ export const Platenbak: React.FC<{ t: number }> = ({ t }) => {
   const sub = tussen(t, 30.9, 31.3);
   return (
     <AbsoluteFill style={{ opacity: inP * (1 - uit) }}>
-      <div style={{ position: "absolute", top: 455, left: 90, right: 90, textAlign: "center", fontFamily: FONT.sans, fontWeight: 300, fontSize: 38, lineHeight: 1.35, color: KLEUR.champagne, opacity: sub }}>
-        {TEKST.stap5Sub}
-      </div>
+      {TEKST.stap5Sub && (
+        <div style={{ position: "absolute", top: 455, left: 90, right: 90, textAlign: "center", fontFamily: FONT.sans, fontWeight: 300, fontSize: 38, lineHeight: 1.35, color: KLEUR.champagne, opacity: sub }}>
+          {TEKST.stap5Sub}
+        </div>
+      )}
       {/* platenbak */}
       <div style={{ position: "absolute", left: 140, top: 820, width: 800, height: 720, transform: `translateY(${(1 - inP) * 200}px)` }}>
         {/* hoezen in de bak (achter → voor) */}

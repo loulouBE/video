@@ -28,7 +28,7 @@ export const KORT_DUUR = 22;
 export const KORT = {
   hook: ["WAT ZIJN JOUW", "OUDE PLATEN", "WAARD?"],
   stappen: [
-    { nr: 1, titel: "SCAN DE BARCODE", van: 2.2, tot: 6.5 },
+    { nr: 1, titel: "SCAN BARCODE OF HOES", van: 2.2, tot: 6.5 },
     { nr: 2, titel: "JIJ KIEST DE PRIJS", van: 6.5, tot: 10.5 },
     { nr: 3, titel: "WIJ VERKOPEN ZE", van: 10.5, tot: 14.0 },
   ],
@@ -127,7 +127,7 @@ const KortTitels: React.FC<{ t: number }> = ({ t }) => {
       <div style={{ position: "absolute", top: 418, left: 0, right: 0, height: 2, background: "linear-gradient(90deg, transparent, #C5A06A, transparent)", opacity: band }} />
       {s && (
         <div style={{ position: "absolute", top: 250, left: 60, right: 60 }} key={s.nr}>
-          <KineTitel tekst={`${s.nr}. ${s.titel}`} t={t} start={s.van + 0.05} grootte={86} uit={s.tot - 0.25} stagger={0.014} />
+          <KineTitel tekst={`${s.nr}. ${s.titel}`} t={t} start={s.van + 0.05} grootte={76} uit={s.tot - 0.25} stagger={0.014} />
         </div>
       )}
     </AbsoluteFill>

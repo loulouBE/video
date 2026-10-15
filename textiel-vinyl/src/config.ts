@@ -98,7 +98,7 @@ export const TEKST = {
   openingAntwoord: "", // leeg = niet tonen (de voice-over zegt het)
   stappen: [
     { nr: 1, titel: "REGISTREER JE VINYL ONLINE" },
-    { nr: 2, titel: "SCAN DE BARCODE" },
+    { nr: 2, titel: "SCAN DE BARCODE OF HOES" },
     { nr: 3, titel: "ONTDEK DE WAARDE" },
     { nr: 4, titel: "JIJ BEPAALT DE PRIJS!" },
     { nr: 5, titel: "WIJ VERKOPEN JOUW PLATEN!" },
@@ -112,7 +112,7 @@ export const TEKST = {
     "Richtprijs = enkel een indicatie. Jij kiest!",
     "Na goedkeuring online te koop",
   ],
-  stap5Sub: "Breng je platen naar Lou Lou: wij kleven er een prijsticketje op.",
+  stap5Sub: "", // leeg = geen tekst bij de platenbak (de voice-over zegt het)
   goedDoelTitel: "EN JE STEUNT EEN GOED DOEL!",
   deelJij: "90%",
   deelJijTekst: "VOOR JOU",
