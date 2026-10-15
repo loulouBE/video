@@ -233,7 +233,7 @@ export const Platenbak: React.FC<{ t: number }> = ({ t }) => {
             <div key={y} style={{ position: "absolute", left: 0, right: 0, top: `${y * 100}%`, height: 2, background: "rgba(40,20,10,0.35)" }} />
           ))}
           <div style={{ fontFamily: FONT.sans, fontWeight: 500, fontSize: 30, letterSpacing: "0.4em", color: "rgba(255,226,180,0.85)", background: "rgba(30,15,8,0.5)", padding: "10px 26px", borderRadius: 4 }}>
-            VINYL · TE KOOP
+            TE KOOP · 14 NOVEMBER
           </div>
         </div>
       </div>

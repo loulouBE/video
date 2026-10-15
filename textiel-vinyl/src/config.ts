@@ -101,7 +101,7 @@ export const TEKST = {
     { nr: 2, titel: "SCAN DE BARCODE OF HOES" },
     { nr: 3, titel: "ONTDEK DE WAARDE" },
     { nr: 4, titel: "JIJ BEPAALT DE PRIJS!" },
-    { nr: 5, titel: "WIJ VERKOPEN JOUW PLATEN!" },
+    { nr: 5, titel: "WIJ VERKOPEN ZE OP 14 NOVEMBER" },
   ],
   // uitlegkader per stap: uitgeschakeld (te druk; de voice-over legt het uit)
   toonUitleg: false,
@@ -110,7 +110,7 @@ export const TEKST = {
     "Richt je camera op de streepjescode",
     "Automatisch herkend!",
     "Richtprijs = enkel een indicatie. Jij kiest!",
-    "Na goedkeuring online te koop",
+    "Te koop in de winkel op 14 november",
   ],
   stap5Sub: "", // leeg = geen tekst bij de platenbak (de voice-over zegt het)
   goedDoelTitel: "EN JE STEUNT EEN GOED DOEL!",

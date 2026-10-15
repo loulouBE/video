@@ -65,7 +65,7 @@ const VOLGORDE: [number, Scherm][] = [
   [12.75, "editie"],
   [13.9, "formulier"],
   [25.3, "mijnplaten"],
-  [27.3, "collectie"],
+  // collectie-scherm bewust weggelaten: platen zijn niet online te koop, enkel op 14 november in de winkel
 ];
 
 // Camera: [tijd, zoom, focusX, focusY] (focus in schermcoördinaten 390×844)
@@ -90,8 +90,8 @@ const CAMERA: [number, number, number, number][] = [
   [24.6, 1.55, 195, 175],
   [25.4, 1.0, 195, 422],
   [27.6, 1.0, 195, 422],
-  [28.2, 1.3, 102, 488], // de plaat in de collectie (midden van de kaart)
-  [29.2, 1.3, 102, 488],
+  [27.0, 1.35, 195, 330], // inzoomen op de geregistreerde plaat met status
+  [29.2, 1.35, 195, 330],
 ];
 
 const camera = (t: number) => {

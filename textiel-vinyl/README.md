@@ -73,7 +73,7 @@ Verandert de duur, pas dan ook `DUUR` in `src/config.ts` en in `audio-src/maak_m
 **Echt (van de live site events.loulou.store of de echte bronnen)**
 - Logo TEXTIEL & VINYL en de foto van Blanche & Cécile: originele bestanden van de site, niet bewerkt (enkel trage zoom).
 - Sfeerbeelden `mirrorball.jpg`, `fashion.jpg`, `gifts.jpg`, `vinyl.jpg`: van de site.
-- Homepage, loginpagina en "The Vinyl Collection": echte schermafbeeldingen (iPhone 13).
+- Homepage en loginpagina: echte schermafbeeldingen (iPhone 13). "The Vinyl Collection" wordt bewust niet getoond: de platen zijn niet online te koop, enkel in de winkel op 14 november.
 - Voorbeeldplaat **Kraftwerk – King Biscuit Radio 1975** (Cult Legends, 2020, EAN 8717662582301): staat echt in de publieke collectie aan **€ 10,00 · M/M**; hoes en gegevens via MusicBrainz/Cover Art Archive. De barcode in beeld is de echte EAN-13.
 - Teksten in de interface ("Plaat toevoegen", "Scan barcode", "Richt op de streepjescode", "Barcode gelezen", "Plaat opzoeken…", "Kies de juiste editie", "Richtprijs (Discogs)", "Enkel een indicatie; jij kiest de prijs.", "Plaat registreren", "Plaat geregistreerd", statussen "Aangemeld"/"Goedgekeurd") zijn letterlijk overgenomen uit de code van de site.
 - Prijsticketje: zelfde opzet als de ticketjes uit het beheer (70 × 37 mm, TEXTIEL & VINYL, prijs, artiest, titel, conditie, Code128-barcode van het TV-nummer).

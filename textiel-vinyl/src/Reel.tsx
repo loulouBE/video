@@ -45,7 +45,6 @@ const SFX: [number, string, number][] = [
   [TIKKEN.registreren, "tik", 1],
   [MOMENTEN.geregistreerd, "bevestig", 0.9],
   [MOMENTEN.goedgekeurd, "bevestig", 0.8],
-  [27.3, "whoosh", 0.4],
   [29.3, "whoosh", 0.6],
   [30.6, "sluiter", 1],
   [31.9, "whoosh", 0.5],

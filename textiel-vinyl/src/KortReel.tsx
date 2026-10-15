@@ -30,7 +30,7 @@ export const KORT = {
   stappen: [
     { nr: 1, titel: "SCAN BARCODE OF HOES", van: 2.2, tot: 6.5 },
     { nr: 2, titel: "JIJ KIEST DE PRIJS", van: 6.5, tot: 10.5 },
-    { nr: 3, titel: "WIJ VERKOPEN ZE", van: 10.5, tot: 14.0 },
+    { nr: 3, titel: "VERKOOP OP 14 NOVEMBER", van: 10.5, tot: 14.0 },
   ],
   oproep: "REGISTREER NU JOUW VINYL",
   teaser: "Te koop op 14 november",
@@ -43,7 +43,7 @@ const MAP: [number, number, number, number][] = [
   [6.5, 8.0, 17.3, 18.9], // richtprijs
   [8.0, 9.6, 20.4, 22.0], // zelf prijs typen
   [9.6, 10.5, 23.45, 24.6], // registreren + "Plaat geregistreerd"
-  [10.5, 12.2, 27.5, 29.25], // online in de collectie
+  [10.5, 12.2, 25.4, 27.3], // geregistreerd: "Mijn platen" met status
   [12.2, 14.0, 29.6, 31.4], // platenbak + prijsticketje
   [14.0, 17.0, 32.0, 35.4], // 90 / 10
 ];
