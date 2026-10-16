@@ -409,13 +409,15 @@ export const DJs: React.FC<{ t: number }> = ({ t }) => {
         <div style={{ position: "absolute", top: 975, left: 20, right: 20 }}>
           <KineTitel tekst={TEKST.djNamen} t={t} start={a + 0.35} grootte={96} stagger={0.02} spatiering="0.02em" />
         </div>
-        <div style={{ position: "absolute", top: 1105, left: 0, right: 0, textAlign: "center", opacity: tussen(t, a + 0.7, a + 1.0) }}>
-          <Eyebrow style={{ fontSize: 34, color: KLEUR.champagne }}>{TEKST.djBekend}</Eyebrow>
-        </div>
+        {TEKST.djBekend && (
+          <div style={{ position: "absolute", top: 1105, left: 0, right: 0, textAlign: "center", opacity: tussen(t, a + 0.7, a + 1.0) }}>
+            <Eyebrow style={{ fontSize: 34, color: KLEUR.champagne }}>{TEKST.djBekend}</Eyebrow>
+          </div>
+        )}
         <div
           style={{
             position: "absolute",
-            top: 1185,
+            top: TEKST.djBekend ? 1185 : 1115,
             left: 60,
             right: 60,
             textAlign: "center",
@@ -424,8 +426,8 @@ export const DJs: React.FC<{ t: number }> = ({ t }) => {
             fontWeight: 500,
             fontSize: 66,
             color: KLEUR.goudLicht,
-            opacity: tussen(t, a + 1.0, a + 1.35),
-            transform: `translateY(${(1 - tussen(t, a + 1.0, a + 1.35)) * 30}px)`,
+            opacity: tussen(t, a + 0.8, a + 1.15),
+            transform: `translateY(${(1 - tussen(t, a + 0.8, a + 1.15)) * 30}px)`,
           }}
         >
           {TEKST.djExclusief}

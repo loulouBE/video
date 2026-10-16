@@ -6,7 +6,7 @@
 export const FPS = 30;
 export const BREEDTE = 1080;
 export const HOOGTE = 1920;
-export const DUUR = 50.6; // seconden
+export const DUUR = 49.7; // seconden
 
 // Kleuren: overgenomen van events.loulou.store (src/styles.css) + art direction
 export const KLEUR = {
@@ -89,8 +89,8 @@ export const SCENE = {
   stap4: [20, 25.3],
   stap5: [25.3, 32],
   goedDoel: [32, 37],
-  djs: [37, 43.7],
-  einde: [43.7, 50.6],
+  djs: [37, 42.62],
+  einde: [42.62, 49.7],
 } as const;
 
 export const TEKST = {
@@ -119,7 +119,7 @@ export const TEKST = {
   deelDoel: "10%",
   deelDoelTekst: "VOOR HET GOEDE DOEL",
   djNamen: "BLANCHE & CÉCILE",
-  djBekend: "BEKEND VAN DE MEMLING",
+  djBekend: "", // leeg = niet tonen
   djExclusief: "EXCLUSIEF ACHTER DE DRAAITAFELS!",
   // sfeermontage na Blanche & Cécile (uitgeschakeld: foto blijft staan tot "10 jaar Lou Lou")
   toonSfeer: false,
